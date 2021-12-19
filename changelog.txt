@@ -1,0 +1,24 @@
+Reworked
+[Brick Mixture] - Gives an even 12 uses
+[Coins] - Sprites replaced by new artwork
+[Plate Stacks] - Can be used for forging
+[Firebrand] - Can be put out using water
+[Orange Tree] - Now resets the cycle correctly
+[Scarecrow] - Crow spawning reduced
+[Board Variants] - Boards are now interchangable
+[Signs and Shelves] - Now require nails to attach to walls
+[Bone needles] - Can be stacked
+[Paint Brushes] - No use when creating them
+[Horse Hair] - Can be created from multiple horse objects
+[Leaf] - Can be created from multiple green biome trees
+
+
+New Items
+[Leather Boots] - Can be made by cutting leather
+[Mouflon Loincloth] - Primitive pants
+[Light and Dark Spring Doors] - Variant of normal wood sping door
+[Shelf Wall Variants] - Most walls now support shelves
+[Nails] - Added to attach items to walls
+[Roast Pig] - New food
+[Chilli Con Carne] - New food works similar to stew
+[Vertical Fence Gates] - Can be created same way as normal gates

@@ -1,0 +1,4 @@
+@ECHO OFF
+CD %~dp0\2HOL_win_v20279\
+START OneLife.exe
+EXIT

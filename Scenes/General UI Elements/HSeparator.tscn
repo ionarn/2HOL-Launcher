@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Themes/Horizontal_Separator.tres" type="StyleBox" id=1]
+
+[node name="HSeparator23" type="HSeparator"]
+margin_top = 39.0
+margin_right = 430.0
+margin_bottom = 43.0
+custom_styles/separator = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

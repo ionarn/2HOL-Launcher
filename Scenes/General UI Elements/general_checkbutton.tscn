@@ -1,0 +1,49 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Icons/CB_EnabledOFF_2.png" type="Texture" id=1]
+[ext_resource path="res://Icons/CB_DisabledOFF_2.png" type="Texture" id=2]
+[ext_resource path="res://Icons/CB_DisabledON_2.png" type="Texture" id=3]
+[ext_resource path="res://Icons/CB_EnabledON_2.png" type="Texture" id=4]
+[ext_resource path="res://Themes/thol_launcher_theme_1.tres" type="Theme" id=5]
+[ext_resource path="res://Themes/Checkbox/Checkbox_Hover_Pressed.tres" type="StyleBox" id=6]
+[ext_resource path="res://Scenes/General UI Elements/Reset_Button.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scripts/General_CheckButton.gd" type="Script" id=9]
+
+[node name="gcb_general_checkbuttons" type="HBoxContainer"]
+margin_top = 164.0
+margin_right = 426.0
+margin_bottom = 191.0
+rect_min_size = Vector2( 0, 26 )
+custom_constants/separation = 0
+alignment = 2
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+CheckButton_Text = "General Checkbutton"
+variable_name_code = "variable_name_code"
+
+[node name="gcb_checkbutton" type="CheckButton" parent="." groups=[
+"VSync",
+]]
+margin_right = 401.0
+margin_bottom = 27.0
+rect_min_size = Vector2( 0, 26 )
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme = ExtResource( 5 )
+custom_icons/off = ExtResource( 1 )
+custom_icons/on_disabled = ExtResource( 3 )
+custom_icons/on = ExtResource( 4 )
+custom_icons/off_disabled = ExtResource( 2 )
+custom_styles/hover = ExtResource( 6 )
+custom_styles/hover_pressed = ExtResource( 6 )
+custom_colors/font_color_pressed = Color( 0.819608, 0.819608, 0.819608, 1 )
+text = "General Checkbutton"
+
+[node name="gcb_reset" parent="." instance=ExtResource( 7 )]
+margin_left = 401.0
+margin_right = 426.0
+margin_bottom = 27.0
+
+[connection signal="toggled" from="gcb_checkbutton" to="." method="_on_gcb_checkbutton_toggled"]
