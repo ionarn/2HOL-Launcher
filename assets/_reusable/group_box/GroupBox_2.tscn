@@ -1,0 +1,55 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/_reusable/group_box/groupbox.gd" type="Script" id=1]
+[ext_resource path="res://Text_BG.tres" type="StyleBox" id=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0, 0, 1 )
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.101961, 0.101961, 0.109804, 1 )
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_left = 8.0
+expand_margin_right = 8.0
+expand_margin_top = 16.0
+expand_margin_bottom = 8.0
+
+[node name="GroupBox_NAME" type="Panel"]
+margin_left = 8.0
+margin_top = 35.0
+margin_right = 477.0
+margin_bottom = 124.0
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBox_Video" type="HBoxContainer" parent="."]
+margin_top = -22.0
+margin_right = 466.0
+margin_bottom = -8.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="HBox_Video"]
+margin_bottom = 14.0
+
+[node name="lbl_Video" type="Label" parent="HBox_Video"]
+margin_left = 4.0
+margin_right = 50.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 1, 1, 1, 0.498039 )
+custom_styles/normal = ExtResource( 2 )
+text = "Name"
+__meta__ = {
+"_edit_use_anchors_": false
+}

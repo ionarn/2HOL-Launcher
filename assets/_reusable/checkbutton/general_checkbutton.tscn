@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://theme/thol_launcher_theme_1.tres" type="Theme" id=5]
+[ext_resource path="res://theme/Checkbox/Checkbox_Hover_Pressed.tres" type="StyleBox" id=6]
+[ext_resource path="res://assets/_reusable/reset/Reset_Button.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/_reusable/checkbutton/checkbutton_general.gd" type="Script" id=9]
+
+[node name="gcb_general_checkbuttons" type="HBoxContainer"]
+margin_top = 164.0
+margin_right = 426.0
+margin_bottom = 191.0
+rect_min_size = Vector2( 0, 26 )
+alignment = 2
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+CheckButton_Text = "General Checkbutton"
+variable_name_code = "variable_name_code"
+
+[node name="gcb_checkbutton" type="CheckButton" parent="." groups=[
+"VSync",
+]]
+margin_right = 397.0
+margin_bottom = 28.0
+rect_min_size = Vector2( 0, 26 )
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme = ExtResource( 5 )
+custom_styles/hover_pressed = ExtResource( 6 )
+custom_colors/font_color_pressed = Color( 0.819608, 0.819608, 0.819608, 1 )
+text = "General Checkbutton"
+
+[node name="gcb_reset" parent="." instance=ExtResource( 7 )]
+margin_left = 401.0
+margin_top = 1.0
+margin_right = 426.0
+margin_bottom = 26.0
+
+[connection signal="toggled" from="gcb_checkbutton" to="." method="_on_gcb_checkbutton_toggled"]

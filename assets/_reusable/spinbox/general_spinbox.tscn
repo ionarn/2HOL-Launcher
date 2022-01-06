@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://theme/thol_launcher_theme_1.tres" type="Theme" id=1]
+[ext_resource path="res://assets/_reusable/reset/Reset_Button.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/_reusable/spinbox/general_spinbox.gd" type="Script" id=3]
+
+[node name="gsb_general_spinbox" type="HBoxContainer"]
+margin_top = 8.0
+margin_right = 422.0
+margin_bottom = 35.0
+size_flags_horizontal = 11
+alignment = 2
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="gsb_label" type="Label" parent="."]
+margin_top = 2.0
+margin_right = 194.0
+margin_bottom = 30.0
+mouse_filter = 0
+size_flags_horizontal = 3
+theme = ExtResource( 1 )
+text = "Spinbox Tool"
+
+[node name="gsb_spinbox" type="SpinBox" parent="."]
+margin_left = 198.0
+margin_right = 393.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+theme = ExtResource( 1 )
+align = 2
+
+[node name="gsb_reset" parent="." instance=ExtResource( 2 )]
+margin_left = 397.0
+margin_top = 3.0
+margin_right = 422.0
+margin_bottom = 28.0
+
+[connection signal="value_changed" from="gsb_spinbox" to="." method="_on_gsb_spinbox_value_changed"]

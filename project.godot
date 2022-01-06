@@ -21,34 +21,35 @@ _global_script_class_icons={
 [application]
 
 config/name="2HOL Launcher"
-run/main_scene="res://Scenes/Main.tscn"
-boot_splash/image="res://Icons/SplashScreen.png"
+run/main_scene="res://Main.tscn"
+boot_splash/image="res://assets/icons/splash_screen.png"
 boot_splash/fullsize=false
 boot_splash/bg_color=Color( 0.101961, 0.109804, 0.129412, 1 )
-config/icon="res://Icons/2HOL_Logo_24px.png"
 config/windows_native_icon="res://Icons/2HOL.ico"
 
 [autoload]
 
-TL_Path="*res://Scripts/path.gd"
-TL_Node="*res://Scripts/nodes.gd"
-TL_Default="*res://Scripts/default.gd"
-TL_Icon="*res://Scripts/icon.gd"
-TL_Scene="*res://Scripts/scene.gd"
-TL_LineEdit="*res://Scripts/lineedit.gd"
-TL_CheckButton="*res://Scripts/checkbutton.gd"
-TL_Variables="*res://Scripts/variables.gd"
-TL_Font="*res://Scripts/font.gd"
-TL_Color="*res://Scripts/color.gd"
-TL_OnReady="*res://Scripts/on_ready.gd"
-TL_Signal="*res://Scripts/signal.gd"
-TL_SpinBox="*res://Scripts/spinbox.gd"
-TL_Func="*res://Scripts/general_functions.gd"
+TL_Path="*res://assets/_auto_load/path.gd"
+TL_Node="*res://assets/_auto_load/nodes.gd"
+TL_Default="*res://assets/_auto_load/default.gd"
+TL_Icon="*res://assets/_auto_load/icon.gd"
+TL_Scene="*res://assets/_auto_load/scene.gd"
+TL_LineEdit="*res://assets/_auto_load/lineedit.gd"
+TL_CheckButton="*res://assets/_auto_load/checkbutton.gd"
+TL_Variables="*res://assets/_auto_load/variables.gd"
+TL_Font="*res://assets/_auto_load/font.gd"
+TL_Color="*res://assets/_auto_load/color.gd"
+TL_OnReady="*res://assets/_auto_load/on_ready.gd"
+TL_Signal="*res://assets/_auto_load/signal.gd"
+TL_SpinBox="*res://assets/_auto_load/spinbox.gd"
+TL_Func="*res://assets/_auto_load/general_functions.gd"
+TL_AccordionMenu="*res://assets/_auto_load/accordion_menu.gd"
 
 [display]
 
 window/size/width=650
 window/size/height=520
+window/size/borderless=true
 
 [gdnative]
 
@@ -56,7 +57,7 @@ singletons=[ "res://addons/godot-git-plugin/git_api.gdnlib" ]
 
 [gui]
 
-theme/custom="res://Themes/thol_launcher_theme_1.tres"
+theme/custom="res://theme/thol_launcher_theme_1.tres"
 
 [importer_defaults]
 
@@ -85,7 +86,7 @@ texture={
 
 Close={
 "deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":true,"meta":false,"command":true,"pressed":false,"scancode":81,"unicode":0,"echo":false,"script":null)
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":true,"meta":false,"command":true,"pressed":false,"scancode":81,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
 
@@ -95,4 +96,3 @@ quality/driver/driver_name="GLES2"
 threads/thread_model=2
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
-environment/default_environment="res://default_env.tres"
