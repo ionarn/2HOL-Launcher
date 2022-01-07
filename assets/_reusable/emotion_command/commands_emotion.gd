@@ -1,9 +1,6 @@
 tool
 extends HBoxContainer
 
-#func finding_nodes(node_name):
-#	return get_tree().get_root().find_node(node_name, true, false)
-
 export(String,
 "Happy",
 "Mad",
@@ -38,11 +35,63 @@ export(String,
 var assigned_emotion = 0
 var emo_signature = ""
 
+var config = ConfigFile.new()
+var load_response = config.load(TL_Path.launcher_settings)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	pass
+#	$emo_reset.connect("button_pressed", self, "_on_reset_pressed")
+
+
+func load_value():
 	$emo_reset.connect("button_pressed", self, "_on_reset_pressed")
-	TL_Signal.emit_signal("emotion_ready", self)
+	
+	var file = File.new()
+	if file.file_exists(TL_Path.emotion_words) == false:
+		file.open(TL_Path.emotion_words, file.WRITE)
+		file.store_string(
+					TL_Default.emo_happy + "\n" + 
+					TL_Default.emo_mad + "\n" + 
+					TL_Default.emo_angry + "\n" + 
+					TL_Default.emo_sad + "\n" + 
+					TL_Default.emo_devious + "\n" + 
+					TL_Default.emo_joy + "\n" + 
+					TL_Default.emo_blush + "\n" + 
+					"*yellowFever\n" + 
+					"*snowSplat\n" + 
+					TL_Default.emo_hubba + "\n" + 
+					TL_Default.emo_ill + "\n" + 
+					TL_Default.emo_yoohoo + "\n" + 
+					TL_Default.emo_hmph + "\n" + 
+					TL_Default.emo_love + "\n" + 
+					TL_Default.emo_oreally + "\n" + 
+					TL_Default.emo_shock + "\n" + 
+					"*murderface\n" + 
+					TL_Default.emo_clown + "\n" + 
+					TL_Default.emo_pog + "\n" + 
+					TL_Default.emo_cry + "\n" + 
+					TL_Default.emo_tongue + "\n" + 
+					TL_Default.emo_sleep + "\n" + 
+					TL_Default.emo_brokelove + "\n" + 
+					TL_Default.emo_eyeroll + "\n" + 
+					TL_Default.emo_erm + "\n" + 
+					"*starving\n" + 
+					"*spicyFood\n" + 
+					"*drunk\n" + 
+					"*sourface\n" + 
+					TL_Default.emo_please + "\n" + 
+					"*tripping\n" + 
+					TL_Default.emo_cook + "\n" + 
+					TL_Default.emo_smith + "\n" + 
+					TL_Default.emo_miner + "\n" + 
+					TL_Default.emo_farmer + "\n" + 
+					TL_Default.emo_tailor + "\n" + 
+					TL_Default.emo_hunter
+		)
+	file.close()
+	populate_emotion_lineedit()
+	reset_button_visibility()
 
 
 func populate_emotion_lineedit():
@@ -122,9 +171,9 @@ func _on_ehp_lineedit_text_changed(new_text):
 
 func reset_button_visibility():
 	if $emo_lineedit.text == evaluate("TL_Default." + emo_signature):
-		$emo_reset/reset.visible = false
+		$emo_reset.set_visible(false)
 	else:
-		$emo_reset/reset.visible = true
+		$emo_reset.set_visible(true)
 
 
 func _on_reset_pressed():

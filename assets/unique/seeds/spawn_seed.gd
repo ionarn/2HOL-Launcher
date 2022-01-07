@@ -1,23 +1,5 @@
 extends HBoxContainer
 
-func finding_nodes(node_name):
-	return get_tree().get_root().find_node(node_name, true, false)
-
-#onready var nodes = finding_nodes('nodes')
-#onready var path = finding_nodes('path')
-onready var scene = finding_nodes('scene')
-onready var icon = finding_nodes('icon')
-
-#onready var sps_button = finding_nodes('sps_button')
-#onready var sps_popup = finding_nodes('sps_popup')
-#onready var sps_spawn_seed = finding_nodes('sps_spawn_seed')
-#onready var sps_note = finding_nodes('sps_note')
-#onready var sps_container = finding_nodes('sps_container')
-#onready var sps_scrollcontainer = finding_nodes('sps_scrollcontainer')
-#onready var sps_reset = finding_nodes('sps_reset')
-#onready var entry = preload('res://Scenes/dropdown/entry.tscn')
-#onready var radio_checked = preload('res://Icons/GuiRadioChecked.png')
-
 var selected_id = 0
 var popup_panel_size_y = 0
 var popup_smaller = false
@@ -29,17 +11,36 @@ var key = 'seeds'
 var launcher_settings_path = "./settings/launcher_settings.ini"
 var config = ConfigFile.new()
 var load_response = config.load(launcher_settings_path)
-#var stuff = [123,546,756]
 var i = 0
 
 # - - - - - - - - - - - - - - - - - - - - - - - -
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
+func load_values():
 	TL_Node.sps_popup.connect("item_selected", self, "_on_seed_dropdown_item_selected")
 	TL_Node.sps_popup.connect("pressed_add", self, "_on_seed_dropdown_add_item_pressed")
 	TL_Node.sps_popup.connect("pressed_remove", self, "_on_seed_dropdown_remove_item_pressed")
 	TL_Node.sps_reset.connect("button_pressed", self, "_on_sps_reset_button_pressed")
+	
+	var file = File.new()
+	if file.file_exists(TL_Path.launcher_settings) == true and config.has_section('seeds') == true:
+		add_seeds_to_dropdown()
+		load_seed_data(TL_Node.sps_popup.get_selected())
+		TL_Node.sps_popup.default_check(TL_Node.sps_popup.get_selected(), [TL_Node.sps_note, TL_Node.sps_spawn_seed], TL_Node.sps_reset)
+	else:
+		config.set_value("seeds", "seeds", [{
+			"note": "Default",
+			"seed": ""
+			} ])
+		config.set_value("seeds", "seed_index", 0)
+		config.save(TL_Path.launcher_settings)
+
+
+# Called when the node enters the scene tree for the first time.
+#func _ready():
+#	TL_Node.sps_popup.connect("item_selected", self, "_on_seed_dropdown_item_selected")
+#	TL_Node.sps_popup.connect("pressed_add", self, "_on_seed_dropdown_add_item_pressed")
+#	TL_Node.sps_popup.connect("pressed_remove", self, "_on_seed_dropdown_remove_item_pressed")
+#	TL_Node.sps_reset.connect("button_pressed", self, "_on_sps_reset_button_pressed")
 	
 #	var seeds_list = config.get_value(section, key)
 #	for item in seeds_list:

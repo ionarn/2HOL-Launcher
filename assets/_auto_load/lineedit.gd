@@ -1,7 +1,7 @@
 extends LineEdit
 
-func load_ini():
-	pass
+#func load_ini():
+#	pass
 
 
 func save_ini(node: Node, path: String):
@@ -12,9 +12,9 @@ func save_ini(node: Node, path: String):
 	file.close()
 
 
-func reset():
-	pass
+#func reset():
+#	pass
 
 
-func reset_button_visibility():
-	pass
+#func reset_button_visibility():
+#	pass

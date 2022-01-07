@@ -4,17 +4,23 @@ extends Node
 
 const hsplit_max_offset = 180
 
+const SECTION_DEFAULTS = "defaults"
+
 const new_server_name = "New Server"
 const new_address = ""
 const new_port = ""
 const section_network = "network"
+const key_server_name = "server_name"
+const key_server_address = "server_address"
+const key_server_port = "server_port"
 const key_server = "server"
 const key_server_index = "server_index"
+
 const server_name = "server_name"
 const server_address = "address"
 const server_port = "port"
 
-var file_exists_emotion_words = false
+onready var file_exists_emotion_words = false
 const emo_allowed_characters = "[A-Za-z,/]"
 const emotion_list = [ {
 	"emo_ui_name": "Happy",
@@ -135,18 +141,22 @@ const emotion_list = [ {
 	},
 ]
 
-onready var resource_array = [
-	{"Node": TL_Node.auto_login, "default_value": TL_Default.auto_login, "Type": "checkbutton"},
-	{"Node": TL_Node.hard_to_quit, "default_value": TL_Default.hard_to_quit, "Type": "checkbutton"},
-	{"Node": TL_Node.check_spelling, "default_value": TL_Default.check_spelling, "Type": "checkbutton"},
-	{"Node": TL_Node.live_triggers, "default_value": TL_Default.live_triggers, "Type": "checkbutton"},
-	{"Node": TL_Node.tutorial_done, "default_value": TL_Default.tutorial_done, "Type": "checkbutton"},
-	{"Node": TL_Node.pause_on_minimize, "default_value": TL_Default.pause_on_minimize, "Type": "checkbutton"},
-	{"Node": TL_Node.cursor_speed, "default_value": TL_Default.cursor_speed, "Type": "spinbox"},
-]
+var resource_array
+var hetuw_setting_list
 
 
-onready var hetuw_setting_list = [
-	{"variable_name_code": "htw_show_player_info", "node": TL_Node.htw_show_player_info, "line": 52, "key_name": "init_show_selectedplayerinfo", "info": " // 1 = draw names bigger and show age when hovering over a player"},
-	{}
-]
+func load_variables():
+	resource_array = [
+		{"Node": TL_Node.auto_login, "default_value": TL_Default.auto_login, "Type": "checkbutton"},
+		{"Node": TL_Node.hard_to_quit, "default_value": TL_Default.hard_to_quit, "Type": "checkbutton"},
+		{"Node": TL_Node.check_spelling, "default_value": TL_Default.check_spelling, "Type": "checkbutton"},
+		{"Node": TL_Node.live_triggers, "default_value": TL_Default.live_triggers, "Type": "checkbutton"},
+		{"Node": TL_Node.tutorial_done, "default_value": TL_Default.tutorial_done, "Type": "checkbutton"},
+		{"Node": TL_Node.pause_on_minimize, "default_value": TL_Default.pause_on_minimize, "Type": "checkbutton"},
+		{"Node": TL_Node.cursor_speed, "default_value": TL_Default.cursor_speed, "Type": "spinbox"},
+	]
+	
+	hetuw_setting_list = [
+		{"variable_name_code": "htw_show_player_info", "node": TL_Node.htw_show_player_info, "line": 52, "key_name": "init_show_selectedplayerinfo", "info": " // 1 = draw names bigger and show age when hovering over a player"},
+		{}
+	]

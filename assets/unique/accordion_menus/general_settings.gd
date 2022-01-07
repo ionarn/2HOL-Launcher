@@ -2,23 +2,24 @@ extends MarginContainer
 
 ''' V A R I A B L E S '''
 
-onready var resource_array = [
-	{"Node": TL_Node.auto_login, "default_value": TL_Default.auto_login, "Type": "checkbutton"},
-	{"Node": TL_Node.hard_to_quit, "default_value": TL_Default.hard_to_quit, "Type": "checkbutton"},
-	{"Node": TL_Node.check_spelling, "default_value": TL_Default.check_spelling, "Type": "checkbutton"},
-	{"Node": TL_Node.live_triggers, "default_value": TL_Default.live_triggers, "Type": "checkbutton"},
-	{"Node": TL_Node.tutorial_done, "default_value": TL_Default.tutorial_done, "Type": "checkbutton"},
-	{"Node": TL_Node.pause_on_minimize, "default_value": TL_Default.pause_on_minimize, "Type": "checkbutton"},
-	{"Node": TL_Node.cursor_speed, "default_value": TL_Default.cursor_speed, "Type": "spinbox"},
-]
+var resource_array
 
 #	-------------------------------------------------------
 
 ''' F U N C T I O N S '''
 
 ''' ON PROGRAM START '''
-func _ready():
+func load_values():
 	TL_Node.gen_groupbox.connect('unfold_pressed', self, 'on_vid1_unfold_pressed')
+	resource_array = [
+		{"Node": TL_Node.auto_login, "default_value": TL_Default.auto_login, "Type": "checkbutton"},
+		{"Node": TL_Node.hard_to_quit, "default_value": TL_Default.hard_to_quit, "Type": "checkbutton"},
+		{"Node": TL_Node.check_spelling, "default_value": TL_Default.check_spelling, "Type": "checkbutton"},
+		{"Node": TL_Node.live_triggers, "default_value": TL_Default.live_triggers, "Type": "checkbutton"},
+		{"Node": TL_Node.tutorial_done, "default_value": TL_Default.tutorial_done, "Type": "checkbutton"},
+		{"Node": TL_Node.pause_on_minimize, "default_value": TL_Default.pause_on_minimize, "Type": "checkbutton"},
+		{"Node": TL_Node.cursor_speed, "default_value": TL_Default.cursor_speed, "Type": "spinbox"},
+	]
 	for node in TL_Variables.resource_array:
 		node["Node"].connect("on_value_changed", self, "_on_value_change")
 	$gen_groupbox.connect("reset_pressed", self, "_general_reset_pressed")

@@ -19,9 +19,20 @@ var load_response = config.load(launcher_settings_path)
 
 ################################################################
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
+# Loads the Resolutions values to the Lineedit and custom Dropdown menu.
+func load_value():
 	TL_Node.resolution_reset.connect('button_pressed', self, 'on_res_reset_pressed')
+	
+	var file = File.new()
+	if file.file_exists(TL_Path.resolution_x) == true and file.file_exists(TL_Path.resolution_y) == true and file.file_exists(TL_Path.launcher_settings) == true:
+		res_load_values()
+		res_reset_button_visibility()
+	file.close()
+
+
+# Called when the node enters the scene tree for the first time.
+#func _ready():
+#	TL_Node.resolution_reset.connect('button_pressed', self, 'on_res_reset_pressed')
 
 
 func _on_res_dropdown_item_selected(_index):
@@ -94,9 +105,9 @@ func res_available_option(compare_x, compare_y):
 
 func res_reset_button_visibility():
 	if TL_Node.resolution_le_x.text == str(TL_Default.resolution_x) and TL_Node.resolution_le_y.text == str(TL_Default.resolution_y):
-		TL_Node.resolution_reset.get_node("reset").visible = false
+		TL_Node.resolution_reset.set_visible(false)
 	else:
-		TL_Node.resolution_reset.get_node("reset").visible = true
+		TL_Node.resolution_reset.set_visible(true)
 
 
 func res_x_write(amount):
@@ -114,7 +125,6 @@ func res_y_write(amount):
 
 
 func res_apply_dropdown_to_lineedit():
-	
 	if TL_Node.resolution_dropdown.selected == 0:
 		TL_Node.resolution_le_x.text = option_0x
 		res_x_write(option_0x)

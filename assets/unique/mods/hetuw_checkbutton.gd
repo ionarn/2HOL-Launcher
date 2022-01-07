@@ -17,7 +17,7 @@ var hetuw_setting_index = 0
 ''' F U N C T I O N S '''
 
 
-func _ready():
+func load_value():
 #	var hetuw_array = read_hetuw_cfg()
 	for item in TL_Variables.hetuw_setting_list:
 		if item["variable_name_code"] == variable_name_code:

@@ -6,11 +6,7 @@ signal button_pressed
 
 # ---------------------
 
-func _on_Reset_pressed():
-	emit_signal('button_pressed')
-
-
-func visible(boolean):
+func set_visible(boolean: bool):
 	$reset.visible = boolean
 
 

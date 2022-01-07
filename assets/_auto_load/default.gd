@@ -8,94 +8,226 @@ var config = ConfigFile.new()
 var load_response = config.load(launcher_settings_path)
 
 # BASIC SETTINGS
+
+var seed_index
+var seed_name
+var spawn_seed
+
 #-- Video
-onready var fullscreen = config.get_value("defaults", "fullscreen")
-onready var resolution_x = config.get_value("defaults", "screenWidth")
-onready var resolution_y = config.get_value("defaults", "screenHeight")
-onready var resolution_selected = config.get_value("defaults", "resolution_selected")
-onready var borderless = config.get_value("defaults", "borderless")
-onready var mousepointer = config.get_value("defaults", "cursorMode")
-onready var vsync = config.get_value("defaults", "countingOnVsync")
+var fullscreen
+var resolution_x
+var resolution_y
+var resolution_selected
+var borderless
+var mousepointer
+var vsync
 
 #-- Audio
-onready var audio_off = config.get_value("defaults", "audio_off")
-onready var audio_slider = config.get_value("defaults", "audio_slider")
-onready var music_off = config.get_value("defaults", "musicOff")
-onready var music_slider = config.get_value("defaults", "musicLoudness")
-onready var sound_off = config.get_value("defaults", "soundEffectsOff")
-onready var sound_slider = config.get_value("defaults", "soundEffectsLoudness")
+var audio_off
+var audio_volume
+var music_off
+var music_volume
+var sound_off
+var sound_volume
 
 #-- Server
-onready var server = config.get_value("defaults", "server")
-onready var server_index = config.get_value("defaults", "server_index")
+var server
+var server_index
+var server_address
+var server_name
+var server_port
+var use_custom_server
 
 # GAME SETTINGS
-onready var auto_login = config.get_value("defaults", "autoLogIn")
-onready var hard_to_quit = config.get_value("defaults", "hardToQuitMode")
-onready var target_frame_rate = config.get_value("defaults", "targetFrameRate")
-onready var fps_measure = config.get_value("defaults", "skipFPSMeasure")
-onready var check_spelling = config.get_value("defaults", "spellCheckOn")
-onready var live_triggers = config.get_value("defaults", "enableLiveTriggers")
-onready var tutorial_done = config.get_value("defaults", "tutorialDone")
-onready var pause_on_minimize = config.get_value("defaults", "pauseOnMinimize")
-onready var cursor_speed = config.get_value("defaults", "mouseSpeed")
+var auto_login
+var hard_to_quit
+var target_frame_rate
+var fps_measure
+var check_spelling
+var live_triggers
+var tutorial_done
+var pause_on_minimize
+var cursor_speed
 
 # Recording Settings
-onready var record_game = config.get_value("defaults", "recordGame")
-onready var keep_recordings = config.get_value("defaults", "keepPastRecordings")
-onready var show_playback_display = config.get_value("defaults", "hidePlaybackDisplay")
-onready var record_audio = config.get_value("defaults", "recordAudio")
-onready var record_audio_length = config.get_value("defaults", "recordAudioLengthInSeconds")
-onready var sound_sample_rate = config.get_value("defaults", "soundSampleRate")
-onready var speed_control_keys = config.get_value("defaults", "enableSpeedControlKeys")
-onready var sound_buffer_size = config.get_value("defaults", "soundBufferSize")
+var record_game
+var keep_recordings
+var show_playback_display
+var record_audio
+var record_audio_length
+var sound_sample_rate
+var speed_control_keys
+var sound_buffer_size
 
 # HUD SETTINGS
-onready var game_ui = config.get_value("defaults", "hideGameUI")
-onready var use_fov = config.get_value("defaults", "fovEnabled")
-onready var hud_fov_scale = config.get_value("defaults", "fovScale")
-onready var fov_max_scale = config.get_value("defaults", "fovMax")
-onready var force_big_cursor = config.get_value("defaults", "forceBigPointer")
-onready var half_frame_rate = config.get_value("defaults", "halfFrameRate")
+var game_ui
+var use_fov
+var hud_fov_scale
+var fov_max_scale
+var force_big_cursor
+var half_frame_rate
 
-onready var baby_head_down_fac = config.get_value("defaults", "babyHeadDownFactor")
-onready var baby_body_down_fac = config.get_value("defaults", "babyBodyDownFactor")
-onready var old_head_forward_fac = config.get_value("defaults", "oldHeadForwardFactor")
-onready var old_head_down_fac = config.get_value("defaults", "oldHeadDownFactor")
-onready var ground_tile_blur = config.get_value("defaults", "groundTileEdgeBlurRadius")
+var baby_head_down_fac
+var baby_body_down_fac
+var old_head_forward_fac
+var old_head_down_fac
+var ground_tile_blur
 
 # COMMANDS
 #-- Emotions
-onready var emotion_duration = config.get_value("defaults", "emotDuration")
-onready var emo_happy = config.get_value("defaults", "emo_happy")
-onready var emo_mad = config.get_value("defaults", "emo_mad")
-onready var emo_angry = config.get_value("defaults", "emo_angry")
-onready var emo_sad = config.get_value("defaults", "emo_sad")
-onready var emo_devious = config.get_value("defaults", "emo_devious")
-onready var emo_joy = config.get_value("defaults", "emo_joy")
-onready var emo_blush = config.get_value("defaults", "emo_blush")
-onready var emo_hubba = config.get_value("defaults", "emo_hubba")
-onready var emo_ill = config.get_value("defaults", "emo_ill")
-onready var emo_yoohoo = config.get_value("defaults", "emo_yoohoo")
-onready var emo_hmph = config.get_value("defaults", "emo_hmph")
-onready var emo_love = config.get_value("defaults", "emo_love")
-onready var emo_oreally = config.get_value("defaults", "emo_oreally")
-onready var emo_shock = config.get_value("defaults", "emo_shock")
-onready var emo_clown = config.get_value("defaults", "emo_clown")
-onready var emo_pog = config.get_value("defaults", "emo_pog")
-onready var emo_cry = config.get_value("defaults", "emo_cry")
-onready var emo_tongue = config.get_value("defaults", "emo_tongue")
-onready var emo_sleep = config.get_value("defaults", "emo_sleep")
-onready var emo_brokelove = config.get_value("defaults", "emo_brokelove")
-onready var emo_eyeroll = config.get_value("defaults", "emo_eyeroll")
-onready var emo_erm = config.get_value("defaults", "emo_erm")
-onready var emo_please = config.get_value("defaults", "emo_please")
-onready var emo_cook = config.get_value("defaults", "emo_cook")
-onready var emo_smith = config.get_value("defaults", "emo_smith")
-onready var emo_miner = config.get_value("defaults", "emo_miner")
-onready var emo_farmer = config.get_value("defaults", "emo_farmer")
-onready var emo_tailor = config.get_value("defaults", "emo_tailor")
-onready var emo_hunter = config.get_value("defaults", "emo_hunter")
+var emotion_duration
+var emo_happy
+var emo_mad
+var emo_angry
+var emo_sad
+var emo_devious
+var emo_joy
+var emo_blush
+var emo_hubba
+var emo_ill
+var emo_yoohoo
+var emo_hmph
+var emo_love
+var emo_oreally
+var emo_shock
+var emo_clown
+var emo_pog
+var emo_cry
+var emo_tongue
+var emo_sleep
+var emo_brokelove
+var emo_eyeroll
+var emo_erm
+var emo_please
+var emo_cook
+var emo_smith
+var emo_miner
+var emo_farmer
+var emo_tailor
+var emo_hunter
 
 # LAUNCHER SETTINGS
-onready var font_size = config.get_value("defaults", "font_size")
+var font_size
+
+
+func load_variables():
+	var file = File.new()
+	
+	# BASIC SETTINGS
+	
+	seed_index = setget_defaults_values("seed_index", 0)
+	seed_name = setget_defaults_values("seed_name", "Default")
+	spawn_seed = setget_defaults_values("spawn_seed", "")
+	
+	#-- Video
+	fullscreen = setget_defaults_values("fullscreen", 0)
+	resolution_x = setget_defaults_values("screenWidth", 1280)
+	resolution_y = setget_defaults_values("screenHeight", 720)
+	resolution_selected = setget_defaults_values("resolution_selected", 2)
+	borderless = setget_defaults_values("borderless", 0)
+	mousepointer = setget_defaults_values("cursorMode", 0)
+	vsync = setget_defaults_values("countingOnVsync", 1)
+
+	#-- Audio
+	audio_off = setget_defaults_values("audio_off", false)
+	audio_volume = setget_defaults_values("audio_volume", 100)
+	music_off = setget_defaults_values("musicOff", false)
+	music_volume = setget_defaults_values("musicLoudness", 100)
+	sound_off = setget_defaults_values("soundEffectsOff", false)
+	sound_volume = setget_defaults_values("soundEffectsLoudness", 100)
+
+	#-- Server
+	server = setget_defaults_values("server", [{
+		"address": "play.twohoursonelife.com",
+		"port": 8005, "server_name":
+		"Two Hours One Life"
+	}])
+	server_index = setget_defaults_values("server_index", 0)
+	server_address = setget_defaults_values("server_address",
+			"play.twohoursonelife.com")
+	server_name = setget_defaults_values("server_name", "Two Hours One Life")
+	server_port = setget_defaults_values("server_port", 8005)
+	use_custom_server = setget_defaults_values("use_custom_server", 0)
+	
+	# GAME SETTINGS
+	auto_login = setget_defaults_values("autoLogIn", 0)
+	hard_to_quit = setget_defaults_values("hardToQuitMode", 0)
+	target_frame_rate = setget_defaults_values("targetFrameRate", 60)
+	fps_measure = setget_defaults_values("skipFPSMeasure", 0)
+	check_spelling = setget_defaults_values("spellCheckOn", 1)
+	live_triggers = setget_defaults_values("enableLiveTriggers", 0)
+	tutorial_done = setget_defaults_values("tutorialDone", 0)
+	pause_on_minimize = setget_defaults_values("pauseOnMinimize", 0)
+	cursor_speed = setget_defaults_values("mouseSpeed", 1.0)
+
+	# Recording Settings
+	record_game = setget_defaults_values("recordGame", 1)
+	keep_recordings = setget_defaults_values("keepPastRecordings", 20)
+	show_playback_display = setget_defaults_values("hidePlaybackDisplay", 0)
+	record_audio = setget_defaults_values("recordAudio", 0)
+	record_audio_length = setget_defaults_values("recordAudioLengthInSeconds", 130)
+	sound_sample_rate = setget_defaults_values("soundSampleRate", 44100)
+	speed_control_keys = setget_defaults_values("enableSpeedControlKeys", 0)
+	sound_buffer_size = setget_defaults_values("soundBufferSize", 1024)
+
+	# HUD SETTINGS
+	game_ui = setget_defaults_values("hideGameUI", 0)
+	use_fov = setget_defaults_values("fovEnabled", 0)
+	hud_fov_scale = setget_defaults_values("fovScale", 1.25)
+	fov_max_scale = setget_defaults_values("fovMax", 2.25)
+	force_big_cursor = setget_defaults_values("forceBigPointer", 0)
+	half_frame_rate = setget_defaults_values("halfFrameRate", 0)
+
+	baby_head_down_fac = setget_defaults_values("babyHeadDownFactor", 0.54)
+	baby_body_down_fac = setget_defaults_values("babyBodyDownFactor", 0.75)
+	old_head_forward_fac = setget_defaults_values("oldHeadForwardFactor", 3.0)
+	old_head_down_fac = setget_defaults_values("oldHeadDownFactor", 0.35)
+	ground_tile_blur = setget_defaults_values("groundTileEdgeBlurRadius", 12)
+
+	# COMMANDS
+	#-- Emotions
+	var test = setget_defaults_values("KEY", "/VALUE")
+	
+	emotion_duration = setget_defaults_values("emotDuration", 10)
+	emo_happy = setget_defaults_values("emo_happy", "/happy")
+	emo_mad = setget_defaults_values("emo_mad", "/mad")
+	emo_angry = setget_defaults_values("emo_angry", "/angry")
+	emo_sad = setget_defaults_values("emo_sad", "/sad")
+	emo_devious = setget_defaults_values("emo_devious", "/devious")
+	emo_joy = setget_defaults_values("emo_joy", "/joy")
+	emo_blush = setget_defaults_values("emo_blush", "/blush")
+	emo_hubba = setget_defaults_values("emo_hubba", "/hubba")
+	emo_ill = setget_defaults_values("emo_ill", "/ill")
+	emo_yoohoo = setget_defaults_values("emo_yoohoo", "/yoohoo")
+	emo_hmph = setget_defaults_values("emo_hmph", "/hmph")
+	emo_love = setget_defaults_values("emo_love", "/love")
+	emo_oreally = setget_defaults_values("emo_oreally", "/oreally")
+	emo_shock = setget_defaults_values("emo_shock", "/shock")
+	emo_clown = setget_defaults_values("emo_clown", "/clown")
+	emo_pog = setget_defaults_values("emo_pog", "/pog")
+	emo_cry = setget_defaults_values("emo_cry", "/cry")
+	emo_tongue = setget_defaults_values("emo_tongue", "/tongue")
+	emo_sleep = setget_defaults_values("emo_sleep", "/sleep")
+	emo_brokelove = setget_defaults_values("emo_brokelove", "/brokelove")
+	emo_eyeroll = setget_defaults_values("emo_eyeroll", "/eyeroll")
+	emo_erm = setget_defaults_values("emo_erm", "/erm")
+	emo_please = setget_defaults_values("emo_please", "/please")
+	emo_cook = setget_defaults_values("emo_cook", "/cook")
+	emo_smith = setget_defaults_values("emo_smith", "/smith")
+	emo_miner = setget_defaults_values("emo_miner", "/miner")
+	emo_farmer = setget_defaults_values("emo_farmer", "/farmer")
+	emo_tailor = setget_defaults_values("emo_tailor", "/tailor")
+	emo_hunter = setget_defaults_values("emo_hunter", "/hunter")
+
+	# LAUNCHER SETTINGS
+	font_size = setget_defaults_values("font_size", 14)
+
+
+func setget_defaults_values(key: String, new_value):
+	var file = File.new()
+	if (config.has_section_key(TL_Variables.SECTION_DEFAULTS, key) == false
+			or file.file_exists(TL_Path.launcher_settings) == false):
+		config.set_value(TL_Variables.SECTION_DEFAULTS, key, new_value)
+		config.save(TL_Path.launcher_settings)
+	return config.get_value(TL_Variables.SECTION_DEFAULTS, key)
+

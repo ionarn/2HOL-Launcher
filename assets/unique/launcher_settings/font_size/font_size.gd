@@ -8,20 +8,26 @@ extends HBoxContainer
 var config = ConfigFile.new()
 var load_response = config.load(TL_Path.launcher_settings)
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
+	pass
+#	$fsz_reset.connect("button_pressed", self, "_on_fsz_reset_pressed")
+
+# Called when the node enters the scene tree for the first time.
+func load_value():
+	$fsz_reset.connect("button_pressed", self, "_on_fsz_reset_pressed")
+	
 	config.set_value("defaults", "font_size", 14)
-	if config.has_section_key("launcher", "font_size") != true:
+	if config.has_section_key("launcher", "font_size") == false:
 		config.set_value("launcher", "font_size", 14)
-	else:
-		var font_size = config.get_value("launcher", "font_size")
-		TL_Font.default.size = font_size
-		TL_Font.groupbox.size = font_size
-		TL_Font.lineedit.size = font_size
-		TL_Font.login.size = font_size
-		TL_Node.bnr_panel.visible = false
-		TL_Node.bnr_panel.visible = true
-		reset_button_visibility(font_size, TL_Default.font_size)
+		config.save(TL_Path.launcher_settings)
+	var font_size = config.get_value("launcher", "font_size")
+	TL_Font.default.size = font_size
+	TL_Font.groupbox.size = font_size
+	TL_Font.lineedit.size = font_size
+	TL_Font.login.size = font_size
+	TL_Node.bnr_panel.visible = false
+	TL_Node.bnr_panel.visible = true
+	reset_button_visibility(font_size, TL_Default.font_size)
 
 
 func _on_fsz_spinbox_value_changed(value):
@@ -38,6 +44,11 @@ func _on_fsz_spinbox_value_changed(value):
 
 func reset_button_visibility(font_size, default_value):
 	if int(font_size) == int(default_value):
-		TL_Node.font_size_reset.get_node("reset").visible = false
+		TL_Node.font_size_reset.set_visible(false)
 	else:
-		TL_Node.font_size_reset.get_node("reset").visible = true
+		TL_Node.font_size_reset.set_visible(true)
+
+
+func _on_fsz_reset_pressed():
+	TL_Node.font_size_spinbox.value = int(TL_Default.font_size)
+	reset_button_visibility(int(TL_Node.font_size_spinbox.value), int(TL_Default.font_size))

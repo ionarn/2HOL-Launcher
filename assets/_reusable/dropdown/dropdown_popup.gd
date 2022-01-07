@@ -18,10 +18,6 @@ var i = 0
 
 # - - - - - - - - - - - - - - - - - - - - - - -
 
-#func _ready():
-#	pass
-
-
 func text_set(s):
 	button_text = s
 	var label = get_node_or_null("VBoxContainer/HBoxContainer/Button4")
@@ -127,11 +123,13 @@ func default_check(index : int, le_list : Array, reset_button : Node):
 	if index == 0:
 		for line_edit in le_list:
 			line_edit.editable = false
-		reset_button.find_node("reset").visible = false
+			line_edit.mouse_filter = 2
+		reset_button.set_visible(false)
 	else:
 		for line_edit in le_list:
 			line_edit.editable = true
-		reset_button.find_node("reset").visible = true
+			line_edit.mouse_filter = 0
+		reset_button.set_visible(true)
 
 
 func get_items():

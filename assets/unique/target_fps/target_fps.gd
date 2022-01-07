@@ -4,8 +4,13 @@ var frame_rates = [30, 60, 100, 120, 144]
 
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
+#func _ready():
+#	$tfp_reset.connect("button_pressed", self, "_on_reset_button_pressed")
+
+
+func load_value():
 	$tfp_reset.connect("button_pressed", self, "_on_reset_button_pressed")
+	
 	load_ini(TL_Path.target_frame_rate, frame_rates)
 	reset_button_visibility(frame_rates[$tfp_dropdown.selected], TL_Default.target_frame_rate)
 
@@ -35,6 +40,6 @@ func _on_reset_button_pressed():
 
 func reset_button_visibility(selected_value, default_value):
 	if selected_value == int(default_value):
-		$tfp_reset.find_node("reset").visible = false
+		$tfp_reset.set_visible(false)
 	else:
-		$tfp_reset.find_node("reset").visible = true
+		$tfp_reset.set_visible(true)

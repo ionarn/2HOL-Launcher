@@ -7,7 +7,6 @@ const windowed_hover = preload('res://assets/icons/window_windowed_hover.png')
 const windowed_normal = preload('res://assets/icons/window_windowed_normal.png')
 const windowed_pressed = preload('res://assets/icons/window_windowed_pressed.png')
 
-
 const key_show = preload('res://assets/icons/password_show.png')
 const key_hide = preload('res://assets/icons/password_hide.png')
 

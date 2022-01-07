@@ -6,7 +6,7 @@ var dynamic_font = DynamicFont.new()
 
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
+func load_menu_selection():
 	if TL_Node.tabs_root.current_tab == 0:
 		TL_Node.nav_basic_settings.pressed = true
 

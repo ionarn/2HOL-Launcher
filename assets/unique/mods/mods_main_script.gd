@@ -4,7 +4,7 @@ var config = ConfigFile.new()
 var load_response = config.load(TL_Path.launcher_settings)
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
+func load_values():
 	var file = File.new()
 #	file.open(TL_Path.hetuw_minitech_game_file, File.READ)
 	if file.file_exists(TL_Path.hetuw_minitech_game_file) == true and file.file_exists(TL_Path.hetuw_minitech_config_file) == true:

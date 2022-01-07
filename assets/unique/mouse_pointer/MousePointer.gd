@@ -13,9 +13,9 @@ func finding_nodes(node_name):
 
 #	-------------------------------------------------------
 
-''' ON PROGRAM START '''
-func _ready():
+func load_value():
 	TL_Node.mousepointer_reset.connect('button_pressed', self, 'on_mousepointer_reset_pressed') # When 
+	
 	mousepointer_load_value()
 	mousepointer_reset_button_visibility()
 

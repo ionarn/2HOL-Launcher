@@ -1,6 +1,5 @@
 extends SpinBox
 
-
 ''' LOAD SPINBOX VALUE FROM INI '''
 func load_ini(spinbox_node, file_path):
 	var file = File.new() # new file class on which you will call file class methods
@@ -21,10 +20,10 @@ func save_ini(spinbox_node, file_path):
 func reset_button_visibility(spinbox_node, reset_button, default_setting, ini_path):
 	var file = File.new()
 	file.open(ini_path, File.READ)
-	if float(file.get_as_text()) == default_setting:
-		reset_button.get_node("reset").visible = false
+	if float(file.get_as_text()) == float(default_setting):
+		reset_button.set_visible(false)
 	else:
-		reset_button.get_node("reset").visible = true
+		reset_button.set_visible(true)
 
 
 ''' RESET SPINBOX TO DEFAULT VALUE '''

@@ -17,3 +17,12 @@ func flip(boolean: bool):
 		boolean = false
 	else:
 		boolean = true
+
+
+''' CLOSE LAUNCHER '''
+func close_launcher():
+	get_tree().quit()
+
+
+func finding_nodes(node_name: String):
+	return get_tree().get_root().find_node(node_name, true, false)

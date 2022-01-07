@@ -5,8 +5,8 @@ signal on_value_changed
 
 ''' V A R I A B L E S '''
 
-onready var default_setting = TL_Func.exec("TL_Default." + variable_name_code)
-onready var ini_path = TL_Func.exec("TL_Path." + variable_name_code) #have the file path
+var default_setting
+var ini_path
 
 export(String) var label_text = "Spinbox Tool" setget set_label_text, get_label_text
 export(String) var variable_name_code = "Name Code"
@@ -24,12 +24,18 @@ export(String, MULTILINE) var tooltip = ""
 ''' F U N C T I O N S '''
 
 ''' ON PROGRAM START '''
-func _ready():
-#	warning-ignore:return_value_discarded
+func load_value():
+# warning-ignore:return_value_discarded
 	$gsb_reset.connect("button_pressed", self, "_on_reset_button_pressed")
+	
+	default_setting = exec("TL_Default." + variable_name_code)
+	ini_path = exec("TL_Path." + variable_name_code) #have the file path
+	
+	TL_SpinBox.load_ini($gsb_spinbox, ini_path)
+	TL_SpinBox.reset_button_visibility($gsb_spinbox, $gsb_reset, default_setting, ini_path)
+	
 	$gsb_spinbox.hint_tooltip = tooltip
 	$gsb_label.hint_tooltip = tooltip
-	TL_Signal.emit_signal("ready_load_spinbox", $gsb_spinbox, ini_path, $gsb_reset, TL_Func.exec("TL_Default." + variable_name_code))
 
 
 ''' EXPORT TOOL: SET LABEL_TEXT '''
@@ -129,13 +135,21 @@ func get_rounded():
 
 
 ''' ON SPINBOX VALUE CHANGED '''
-func _on_gsb_spinbox_value_changed(value):
+func _on_gsb_spinbox_value_changed(_value):
 	TL_SpinBox.save_ini($gsb_spinbox, ini_path)
-	TL_SpinBox.reset_button_visibility($gsb_spinbox, $gsb_reset, float(TL_Func.exec("TL_Default." + variable_name_code)), ini_path)
+	TL_SpinBox.reset_button_visibility($gsb_spinbox, $gsb_reset, default_setting, ini_path)
 	emit_signal("on_value_changed")
 
 
 ''' ON RESET BUTTON PRESSED '''
 func _on_reset_button_pressed():
-	TL_SpinBox.reset_spinbox($gsb_spinbox, TL_Func.exec("TL_Default." + variable_name_code))
-#	TL_SpinBox.reset_button_visibility($gsb_spinbox, $gsb_reset, float(TL_Func.exec("TL_Default." + variable_name_code)))
+	TL_SpinBox.reset_spinbox($gsb_spinbox, default_setting)
+
+
+func exec(input: String):
+	var script = GDScript.new()
+	script.set_source_code("func eval():\n\treturn " + input)
+	script.reload()
+	var obj = Reference.new()
+	obj.set_script(script)
+	return obj.eval()

@@ -1,38 +1,9 @@
 extends Control
 
 ''' VARIABLES '''
-var server_default = 0
+#var server_default = 0
 var server_name_new = 'Custom Server'
-var server_name_default = 'Two Hours One Life'
-var address_default = 'play.twohoursonelife.com'
-var port_default = '8005'
 
-#var address_path = "./settings/customServerAddress.ini"
-#var port_path = "./settings/customServerPort.ini"
-
-#var section_network = 'network'
-var i = 0
-
-func finding_nodes(node_name):
-	return get_tree().get_root().find_node(node_name, true, false)
-
-#onready var nodes = finding_nodes('nodes')
-#onready var path = finding_nodes('path')
-#onready var scene = finding_nodes('scene')
-#onready var icon = finding_nodes('icon')
-onready var lineedit = finding_nodes('lineedit')
-
-#onready var server_dropdown = finding_nodes('svr_dropdown')
-#onready var server_dropdown2 = finding_nodes('svr_button')
-#onready var server_reset = finding_nodes('svr_reset')
-#onready var server_address = finding_nodes('adr_url')
-#onready var server_port = finding_nodes('prt_port')
-#onready var server_add_item = finding_nodes('svr_add_item')
-#onready var server_remove_item = finding_nodes('svr_remove_item')
-#onready var server_name = finding_nodes('svr_server_name')
-#onready var nw_popup = finding_nodes('nw_popup')
-
-#var launcher_settings_path = "./settings/launcher_settings.ini"
 var config = ConfigFile.new()
 var load_response = config.load(TL_Path.launcher_settings)
 
@@ -47,27 +18,37 @@ var key_address = "address"
 var key_port = "port"
 var server_index = "server_index"
 
-var default_server = [{
-	"address": "play.twohoursonelife.com",
-	"port": "8005",
-	"server_name": "Two Hours One Life",
-}]
-
 #	-------------------------------------------------------
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	pass
+#	TL_Node.nw_popup.connect("item_selected", self, "_on_server_dropdown_item_selected")
+#	TL_Node.nw_popup.connect("pressed_add", self, "_on_server_dropdown_add_item_pressed")
+#	TL_Node.nw_popup.connect("pressed_remove", self, "_on_server_dropdown_remove_item_pressed")
+#	TL_Node.server_reset.connect('button_pressed', self, 'on_server_reset_pressed')
+
+
+func load_values():
 	TL_Node.nw_popup.connect("item_selected", self, "_on_server_dropdown_item_selected")
 	TL_Node.nw_popup.connect("pressed_add", self, "_on_server_dropdown_add_item_pressed")
 	TL_Node.nw_popup.connect("pressed_remove", self, "_on_server_dropdown_remove_item_pressed")
 	TL_Node.server_reset.connect('button_pressed', self, 'on_server_reset_pressed')
-#	if config.has_section(section_network) == false:
-#		config.set_value(section_network, 'server', [ {'server_name': server_name_default, 'address': address_default, 'port': port_default} ])
-#		config.set_value(section_network, 'server_index', 0)
-#		config.save(launcher_settings_path)
-#	add_servers_to_dropdown()
-#	load_server_credentials(server_dropdown.selected)
-#	check_for_ini_cache_match()
+	
+	var file = File.new()
+	if file.file_exists(TL_Path.launcher_settings) == true and config.has_section("network") == true:
+		add_servers_to_dropdown()
+		load_server_credentials(TL_Node.nw_popup.get_selected())
+		var le_list = [TL_Node.server_name, TL_Node.address, TL_Node.port]
+		TL_Node.nw_popup.default_check(TL_Node.nw_popup.selected, le_list, TL_Node.server_reset)
+	else:
+		config.set_value("network", 'server', [{
+			'server_name': TL_Default.server_name,
+			'address': TL_Default.address,
+			'port': TL_Default.port
+		}])
+		config.set_value("network", 'server_index', 0)
+		config.save(TL_Path.launcher_settings)
 
 
 func _on_server_dropdown_item_selected(index):
@@ -81,7 +62,9 @@ func _on_server_dropdown_item_selected(index):
 		var le_server_list = [TL_Node.server_name, TL_Node.address, TL_Node.port]
 		TL_Node.nw_popup.default_check(index, le_server_list, TL_Node.server_reset)
 	else:
-		config.set_value(TL_Variables.section_network, TL_Variables.key_server, TL_Default.server)
+		config.set_value(TL_Variables.section_network, TL_Variables.key_server, TL_Default.server_address)
+		config.set_value(TL_Variables.section_network, TL_Variables.key_server_name, TL_Default.server_name)
+		config.set_value(TL_Variables.section_network, TL_Variables.key_server_port, TL_Default.server_port)
 		config.set_value(TL_Variables.section_network, TL_Variables.key_server_index, TL_Default.server_index)
 		config.save(TL_Path.launcher_settings)
 
@@ -141,9 +124,9 @@ func _on_adr2_add_item_pressed():
 	TL_Node.server_dropdown.selected = TL_Node.server_dropdown.get_item_count() - 1
 	TL_Node.server_name.text = server_name_new
 	write_to_ini(TL_Node.server_name.text, key_server_name)
-	TL_Node.address.text = address_default
+	TL_Node.address.text = TL_Default.server_address
 	write_to_ini(TL_Node.address.text, key_address)
-	TL_Node.port.text = port_default
+	TL_Node.port.text = str(TL_Default.server_port)
 	write_to_ini(TL_Node.port.text, key_port)
 	
 	check_server_index(TL_Node.server_dropdown.selected)
@@ -213,9 +196,9 @@ func write_to_ini(new_text, key):
 func check_server_index(index):
 	if str(index) == '0':
 		TL_Node.address.editable = false
-		TL_Node.address.text = address_default
+		TL_Node.address.text = TL_Default.server_address
 		TL_Node.port.editable = false
-		TL_Node.port.text = port_default
+		TL_Node.port.text = TL_Default.server_port
 		TL_Node.server_remove_item.disabled = true
 		TL_Node.server_name.editable = false
 	else:

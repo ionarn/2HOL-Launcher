@@ -5,8 +5,6 @@ export(String) var text = "Name" setget set_text, get_text
 export(String) var hiding_container_node = ""
 export(bool) var use_reset_button = true setget set_use_reset_button, get_use_reset_button
 
-
-
 signal reset_pressed
 
 # ---------------------

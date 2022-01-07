@@ -1,5 +1,21 @@
 extends MarginContainer
 
+func load_values():
+	var file = File.new()
+	if file.file_exists(TL_Path.username) == true:
+		load_le_data(TL_Path.username, TL_Node.ld_username)
+	else:
+		file.open(TL_Path.username, file.WRITE)
+		file.store_string("")
+	
+	if file.file_exists(TL_Path.key) == true:
+		load_le_data(TL_Path.key, TL_Node.ld_key)
+	else:
+		file.open(TL_Path.key, file.WRITE)
+		file.store_string("")
+	file.close()
+
+
 func _on_ld_username_text_changed(new_text):
 	write_le_data(TL_Path.username, new_text)
 
@@ -10,7 +26,7 @@ func _on_ld_key_text_changed(new_text):
 
 func write_le_data(file_path: String, new_text: String):
 	var file = File.new() #new file class on which you will call file class methods
-	file.open(file_path,File.WRITE)  #the file is now opened in the background
+	file.open(file_path, File.WRITE)  #the file is now opened in the background
 	file.store_string(str(new_text))
 	file.close()
 
@@ -40,25 +56,25 @@ func _on_ld_show_menu_pressed():
 	var tween = $MarginContainer/VBoxContainer/ld_hbox/ld_show_menu/ld_tween
 	var anim_sprite = $MarginContainer/VBoxContainer/ld_hbox/ld_show_menu/ld_anim_sprite
 	
-	if TL_Node.HSplitContainer.split_offset > 0:
-		tween.interpolate_property(TL_Node.HSplitContainer, "split_offset",
-				TL_Node.HSplitContainer.split_offset, 0, 0.65,
+	if TL_Node.hsplitcontainer.split_offset > 0:
+		tween.interpolate_property(TL_Node.hsplitcontainer, "split_offset",
+				TL_Node.hsplitcontainer.split_offset, 0, 0.65,
 				Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
 		tween.start()
 		anim_sprite.animation = "show"
 		anim_sprite.play()
-		TL_Node.HSplitContainer.split_offset = 0
+		TL_Node.hsplitcontainer.split_offset = 0
 	else:
 		TL_Node.nvp_ScrollContainer.visible = true
-		tween.interpolate_property(TL_Node.HSplitContainer, "split_offset",
+		tween.interpolate_property(TL_Node.hsplitcontainer, "split_offset",
 				0, TL_Variables.hsplit_max_offset, 0.65,
 				Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
 		tween.start()
 		anim_sprite.animation = "hide"
 		anim_sprite.play()
-		TL_Node.HSplitContainer.split_offset = TL_Variables.hsplit_max_offset
+		TL_Node.hsplitcontainer.split_offset = TL_Variables.hsplit_max_offset
 
 
 func _on_ld_tween_tween_completed(_object, _key):
-	if TL_Node.HSplitContainer.split_offset < 5:
+	if TL_Node.hsplitcontainer.split_offset < 5:
 		TL_Node.nvp_ScrollContainer.visible = false

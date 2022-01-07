@@ -5,8 +5,8 @@ signal on_value_changed
 
 ''' V A R I A B L E S '''
 
-onready var default_setting = bool(TL_Func.exec("TL_Default." + variable_name_code))
-onready var ini_path = TL_Func.exec("TL_Path." + variable_name_code) #have the file path
+var default_setting
+var ini_path
 
 export(String) var CheckButton_Text = "VSync" setget checkbutton_text_set, checkbutton_text_get
 export(String) var variable_name_code
@@ -19,10 +19,14 @@ export(String, MULTILINE) var tooltip
 ''' F U N C T I O N S '''
 
 ''' ON PROGRAM START '''
-func _ready():
+func load_value():
 # warning-ignore:return_value_discarded
 	$gcb_reset.connect('button_pressed', self, 'on_reset_button_pressed')
-	TL_Signal.emit_signal("ready_load_checkbutton", $gcb_checkbutton, $gcb_reset, ini_path, default_setting, invert_bool)
+	default_setting = bool(TL_Func.exec("TL_Default." + variable_name_code))
+	ini_path = TL_Func.exec("TL_Path." + variable_name_code) #have the file path
+	
+	TL_CheckButton.load_ini($gcb_checkbutton, ini_path, invert_bool)
+	TL_CheckButton.reset_button_visibility($gcb_checkbutton, $gcb_reset, default_setting, invert_bool)
 	$gcb_checkbutton.hint_tooltip = tooltip
 
 
