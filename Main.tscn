@@ -1018,15 +1018,13 @@ margin_right = 577.0
 margin_bottom = 329.0
 follow_focus = true
 scroll_horizontal_enabled = false
-scroll_vertical = 187
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="basic_vbox" type="VBoxContainer" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/BasicSettings/bsc_margin/bsc_scroll_container"]
-margin_top = -187.0
 margin_right = 565.0
-margin_bottom = 709.0
+margin_bottom = 896.0
 size_flags_horizontal = 3
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1042,6 +1040,7 @@ hiding_container_node = "spawn_settings"
 use_case = "Content Area"
 
 [node name="spn_spawn_settings" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/BasicSettings/bsc_margin/bsc_scroll_container/basic_vbox" instance=ExtResource( 26 )]
+theme = ExtResource( 25 )
 
 [node name="HSeparator28" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/BasicSettings/bsc_margin/bsc_scroll_container/basic_vbox" instance=ExtResource( 83 )]
 margin_top = 204.0
@@ -1060,6 +1059,7 @@ hiding_container_node = "vid1_video"
 use_case = "Content Area"
 
 [node name="vid1_video" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/BasicSettings/bsc_margin/bsc_scroll_container/basic_vbox" instance=ExtResource( 27 )]
+theme = ExtResource( 25 )
 script = ExtResource( 30 )
 
 [node name="HSeparator24" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/BasicSettings/bsc_margin/bsc_scroll_container/basic_vbox" instance=ExtResource( 83 )]
@@ -1560,14 +1560,14 @@ custom_constants/separation = 0
 [node name="gen_groupbox" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Game/gam_margin/gam_scroll_container/VBoxContainer" instance=ExtResource( 78 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 577.0
+margin_right = 565.0
 margin_bottom = 38.0
 text = "GENERAL SETTINGS"
 hiding_container_node = "general_settings"
 
 [node name="gen_general_settings" type="Control" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Game/gam_margin/gam_scroll_container/VBoxContainer"]
 margin_top = 38.0
-margin_right = 577.0
+margin_right = 565.0
 margin_bottom = 348.0
 rect_min_size = Vector2( 0, 310 )
 rect_clip_content = true
@@ -1589,7 +1589,7 @@ __meta__ = {
 
 [node name="rec_vbox" type="VBoxContainer" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Game/gam_margin/gam_scroll_container/VBoxContainer/gen_general_settings/gen_margin"]
 margin_left = 14.0
-margin_right = 577.0
+margin_right = 565.0
 margin_bottom = 280.0
 size_flags_horizontal = 3
 custom_constants/separation = 4
@@ -1599,12 +1599,12 @@ __meta__ = {
 
 [node name="HSeparator23" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Game/gam_margin/gam_scroll_container/VBoxContainer/gen_general_settings/gen_margin/rec_vbox" instance=ExtResource( 83 )]
 margin_top = 0.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 4.0
 
 [node name="ali_autologin" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Game/gam_margin/gam_scroll_container/VBoxContainer/gen_general_settings/gen_margin/rec_vbox" instance=ExtResource( 81 )]
 margin_top = 8.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 36.0
 CheckButton_Text = "Auto Login"
 variable_name_code = "auto_login"
@@ -1613,12 +1613,12 @@ tooltip = null
 
 [node name="HSeparator24" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Game/gam_margin/gam_scroll_container/VBoxContainer/gen_general_settings/gen_margin/rec_vbox" instance=ExtResource( 83 )]
 margin_top = 40.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 44.0
 
 [node name="htq_hard_to_quit" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Game/gam_margin/gam_scroll_container/VBoxContainer/gen_general_settings/gen_margin/rec_vbox" instance=ExtResource( 81 )]
 margin_top = 48.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 76.0
 hint_tooltip = "Makes it harder to quit the game."
 CheckButton_Text = "Hard To Quit Mode"
@@ -1628,12 +1628,12 @@ tooltip = null
 
 [node name="HSeparator25" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Game/gam_margin/gam_scroll_container/VBoxContainer/gen_general_settings/gen_margin/rec_vbox" instance=ExtResource( 83 )]
 margin_top = 80.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 84.0
 
 [node name="csp_check_spelling" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Game/gam_margin/gam_scroll_container/VBoxContainer/gen_general_settings/gen_margin/rec_vbox" instance=ExtResource( 81 )]
 margin_top = 88.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 116.0
 CheckButton_Text = "Check Spelling"
 variable_name_code = "check_spelling"
@@ -1642,12 +1642,12 @@ tooltip = null
 
 [node name="HSeparator26" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Game/gam_margin/gam_scroll_container/VBoxContainer/gen_general_settings/gen_margin/rec_vbox" instance=ExtResource( 83 )]
 margin_top = 120.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 124.0
 
 [node name="ltr_live_triggers" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Game/gam_margin/gam_scroll_container/VBoxContainer/gen_general_settings/gen_margin/rec_vbox" instance=ExtResource( 81 )]
 margin_top = 128.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 156.0
 CheckButton_Text = "Use Live Triggers"
 variable_name_code = "live_triggers"
@@ -1656,12 +1656,12 @@ tooltip = null
 
 [node name="HSeparator28" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Game/gam_margin/gam_scroll_container/VBoxContainer/gen_general_settings/gen_margin/rec_vbox" instance=ExtResource( 83 )]
 margin_top = 160.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 164.0
 
 [node name="tdn_tutorial_done" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Game/gam_margin/gam_scroll_container/VBoxContainer/gen_general_settings/gen_margin/rec_vbox" instance=ExtResource( 81 )]
 margin_top = 168.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 196.0
 CheckButton_Text = "Tutorial Done"
 variable_name_code = "tutorial_done"
@@ -1670,12 +1670,12 @@ tooltip = null
 
 [node name="HSeparator29" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Game/gam_margin/gam_scroll_container/VBoxContainer/gen_general_settings/gen_margin/rec_vbox" instance=ExtResource( 83 )]
 margin_top = 200.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 204.0
 
 [node name="pom_pause_on_minimize" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Game/gam_margin/gam_scroll_container/VBoxContainer/gen_general_settings/gen_margin/rec_vbox" instance=ExtResource( 81 )]
 margin_top = 208.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 236.0
 CheckButton_Text = "Pause On Minimize"
 variable_name_code = "pause_on_minimize"
@@ -1684,12 +1684,12 @@ tooltip = null
 
 [node name="HSeparator30" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Game/gam_margin/gam_scroll_container/VBoxContainer/gen_general_settings/gen_margin/rec_vbox" instance=ExtResource( 83 )]
 margin_top = 240.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 244.0
 
 [node name="csp_cursor_speed" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Game/gam_margin/gam_scroll_container/VBoxContainer/gen_general_settings/gen_margin/rec_vbox" instance=ExtResource( 79 )]
 margin_top = 248.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 280.0
 label_text = "Cursor Speed"
 variable_name_code = "cursor_speed"
@@ -1700,21 +1700,21 @@ step = 0.01
 
 [node name="HSeparator23" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Game/gam_margin/gam_scroll_container/VBoxContainer" instance=ExtResource( 83 )]
 margin_top = 348.0
-margin_right = 577.0
+margin_right = 565.0
 margin_bottom = 352.0
 
 [node name="rec_groupbox" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Game/gam_margin/gam_scroll_container/VBoxContainer" instance=ExtResource( 78 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 352.0
-margin_right = 577.0
+margin_right = 565.0
 margin_bottom = 390.0
 text = "RECORDING  SETTINGS"
 hiding_container_node = "recording_settings"
 
 [node name="rec_recording" type="Control" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Game/gam_margin/gam_scroll_container/VBoxContainer"]
 margin_top = 390.0
-margin_right = 577.0
+margin_right = 565.0
 margin_bottom = 760.0
 rect_min_size = Vector2( 0, 370 )
 rect_clip_content = true
@@ -1732,7 +1732,7 @@ __meta__ = {
 
 [node name="rec_vbox" type="VBoxContainer" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Game/gam_margin/gam_scroll_container/VBoxContainer/rec_recording/MarginContainer"]
 margin_left = 14.0
-margin_right = 577.0
+margin_right = 565.0
 margin_bottom = 340.0
 custom_constants/separation = 4
 __meta__ = {
@@ -1741,12 +1741,12 @@ __meta__ = {
 
 [node name="HSeparator23" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Game/gam_margin/gam_scroll_container/VBoxContainer/rec_recording/MarginContainer/rec_vbox" instance=ExtResource( 83 )]
 margin_top = 0.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 4.0
 
 [node name="rcg_record_games" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Game/gam_margin/gam_scroll_container/VBoxContainer/rec_recording/MarginContainer/rec_vbox" instance=ExtResource( 81 )]
 margin_top = 8.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 36.0
 CheckButton_Text = "Record Game"
 variable_name_code = "record_game"
@@ -1755,12 +1755,12 @@ tooltip = null
 
 [node name="HSeparator24" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Game/gam_margin/gam_scroll_container/VBoxContainer/rec_recording/MarginContainer/rec_vbox" instance=ExtResource( 83 )]
 margin_top = 40.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 44.0
 
 [node name="krc_keep_recordings" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Game/gam_margin/gam_scroll_container/VBoxContainer/rec_recording/MarginContainer/rec_vbox" instance=ExtResource( 79 )]
 margin_top = 48.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 80.0
 label_text = "Keep Recordings"
 variable_name_code = "keep_recordings"
@@ -1770,12 +1770,12 @@ rounded = true
 
 [node name="HSeparator25" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Game/gam_margin/gam_scroll_container/VBoxContainer/rec_recording/MarginContainer/rec_vbox" instance=ExtResource( 83 )]
 margin_top = 84.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 88.0
 
 [node name="spd_show_playback_display" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Game/gam_margin/gam_scroll_container/VBoxContainer/rec_recording/MarginContainer/rec_vbox" instance=ExtResource( 81 )]
 margin_top = 92.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 120.0
 CheckButton_Text = "Show Playback Display"
 variable_name_code = "show_playback_display"
@@ -1784,12 +1784,12 @@ tooltip = null
 
 [node name="HSeparator29" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Game/gam_margin/gam_scroll_container/VBoxContainer/rec_recording/MarginContainer/rec_vbox" instance=ExtResource( 83 )]
 margin_top = 124.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 128.0
 
 [node name="sck_speed_control_keys" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Game/gam_margin/gam_scroll_container/VBoxContainer/rec_recording/MarginContainer/rec_vbox" instance=ExtResource( 81 )]
 margin_top = 132.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 160.0
 hint_tooltip = "Use Speed Control Key, my Man!"
 CheckButton_Text = "Use Speed Control Keys"
@@ -1799,12 +1799,12 @@ tooltip = null
 
 [node name="HSeparator26" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Game/gam_margin/gam_scroll_container/VBoxContainer/rec_recording/MarginContainer/rec_vbox" instance=ExtResource( 83 )]
 margin_top = 164.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 168.0
 
 [node name="rca_record_audio" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Game/gam_margin/gam_scroll_container/VBoxContainer/rec_recording/MarginContainer/rec_vbox" instance=ExtResource( 81 )]
 margin_top = 172.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 200.0
 CheckButton_Text = "Record Audio"
 variable_name_code = "record_audio"
@@ -1813,12 +1813,12 @@ tooltip = null
 
 [node name="HSeparator27" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Game/gam_margin/gam_scroll_container/VBoxContainer/rec_recording/MarginContainer/rec_vbox" instance=ExtResource( 83 )]
 margin_top = 204.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 208.0
 
 [node name="ral_record_audio_length" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Game/gam_margin/gam_scroll_container/VBoxContainer/rec_recording/MarginContainer/rec_vbox" instance=ExtResource( 79 )]
 margin_top = 212.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 244.0
 label_text = "Record Audio Length"
 variable_name_code = "record_audio_length"
@@ -1830,12 +1830,12 @@ rounded = true
 
 [node name="HSeparator28" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Game/gam_margin/gam_scroll_container/VBoxContainer/rec_recording/MarginContainer/rec_vbox" instance=ExtResource( 83 )]
 margin_top = 248.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 252.0
 
 [node name="ssr_sound_sample_rate" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Game/gam_margin/gam_scroll_container/VBoxContainer/rec_recording/MarginContainer/rec_vbox" instance=ExtResource( 79 )]
 margin_top = 256.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 288.0
 label_text = "Sound Sample Rate"
 variable_name_code = "sound_sample_rate"
@@ -1847,12 +1847,12 @@ rounded = true
 
 [node name="HSeparator30" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Game/gam_margin/gam_scroll_container/VBoxContainer/rec_recording/MarginContainer/rec_vbox" instance=ExtResource( 83 )]
 margin_top = 292.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 296.0
 
 [node name="sbs_sound_buffer_size" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Game/gam_margin/gam_scroll_container/VBoxContainer/rec_recording/MarginContainer/rec_vbox" instance=ExtResource( 79 )]
 margin_top = 300.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 332.0
 label_text = "Sound Buffer Size (Samples)"
 variable_name_code = "sound_buffer_size"
@@ -1863,7 +1863,7 @@ rounded = true
 
 [node name="HSeparator31" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Game/gam_margin/gam_scroll_container/VBoxContainer/rec_recording/MarginContainer/rec_vbox" instance=ExtResource( 83 )]
 margin_top = 336.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 340.0
 
 [node name="Graphics" type="Tabs" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root"]
@@ -1903,14 +1903,14 @@ __meta__ = {
 [node name="vid2_groupbox" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Graphics/gfx_margin/gfx_scroll_container/vbox_graphics" instance=ExtResource( 78 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 577.0
+margin_right = 565.0
 margin_bottom = 38.0
 text = "VIDEO SETTINGS"
 hiding_container_node = "video_settings"
 
 [node name="vid2_video" type="Control" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Graphics/gfx_margin/gfx_scroll_container/vbox_graphics"]
 margin_top = 38.0
-margin_right = 577.0
+margin_right = 565.0
 margin_bottom = 192.0
 rect_min_size = Vector2( 0, 154 )
 rect_clip_content = true
@@ -1924,28 +1924,28 @@ margin_right = 0.0
 
 [node name="vid2_vbox" type="VBoxContainer" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Graphics/gfx_margin/gfx_scroll_container/vbox_graphics/vid2_video/vid2_margin"]
 margin_left = 14.0
-margin_right = 577.0
+margin_right = 565.0
 margin_bottom = 124.0
 size_flags_horizontal = 3
 custom_constants/separation = 4
 
 [node name="HSeparator27" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Graphics/gfx_margin/gfx_scroll_container/vbox_graphics/vid2_video/vid2_margin/vid2_vbox" instance=ExtResource( 83 )]
 margin_top = 0.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 4.0
 
 [node name="tfp_target_fps" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Graphics/gfx_margin/gfx_scroll_container/vbox_graphics/vid2_video/vid2_margin/vid2_vbox" instance=ExtResource( 80 )]
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 36.0
 
 [node name="HSeparator24" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Graphics/gfx_margin/gfx_scroll_container/vbox_graphics/vid2_video/vid2_margin/vid2_vbox" instance=ExtResource( 83 )]
 margin_top = 40.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 44.0
 
 [node name="fpm_fps_measure" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Graphics/gfx_margin/gfx_scroll_container/vbox_graphics/vid2_video/vid2_margin/vid2_vbox" instance=ExtResource( 81 )]
 margin_top = 48.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 76.0
 CheckButton_Text = "FPS Measure On Startup"
 variable_name_code = "fps_measure"
@@ -1954,12 +1954,12 @@ tooltip = null
 
 [node name="HSeparator25" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Graphics/gfx_margin/gfx_scroll_container/vbox_graphics/vid2_video/vid2_margin/vid2_vbox" instance=ExtResource( 83 )]
 margin_top = 80.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 84.0
 
 [node name="hfr_half_frame_rate" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Graphics/gfx_margin/gfx_scroll_container/vbox_graphics/vid2_video/vid2_margin/vid2_vbox" instance=ExtResource( 81 )]
 margin_top = 88.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 116.0
 CheckButton_Text = "Half Frame Rate"
 variable_name_code = "half_frame_rate"
@@ -1968,26 +1968,26 @@ tooltip = null
 
 [node name="HSeparator28" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Graphics/gfx_margin/gfx_scroll_container/vbox_graphics/vid2_video/vid2_margin/vid2_vbox" instance=ExtResource( 83 )]
 margin_top = 120.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 124.0
 
 [node name="HSeparator24" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Graphics/gfx_margin/gfx_scroll_container/vbox_graphics" instance=ExtResource( 83 )]
 margin_top = 192.0
-margin_right = 577.0
+margin_right = 565.0
 margin_bottom = 196.0
 
 [node name="hud_groupbox" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Graphics/gfx_margin/gfx_scroll_container/vbox_graphics" instance=ExtResource( 78 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 196.0
-margin_right = 577.0
+margin_right = 565.0
 margin_bottom = 234.0
 text = "HUD SETTINGS"
 hiding_container_node = "hud_settings"
 
 [node name="hud_hud" type="Control" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Graphics/gfx_margin/gfx_scroll_container/vbox_graphics"]
 margin_top = 234.0
-margin_right = 577.0
+margin_right = 565.0
 margin_bottom = 476.0
 rect_min_size = Vector2( 0, 242 )
 rect_clip_content = true
@@ -2001,19 +2001,19 @@ margin_right = 0.0
 
 [node name="hud_vbox" type="VBoxContainer" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Graphics/gfx_margin/gfx_scroll_container/vbox_graphics/hud_hud/hud_margin"]
 margin_left = 14.0
-margin_right = 577.0
+margin_right = 565.0
 margin_bottom = 212.0
 size_flags_horizontal = 3
 custom_constants/separation = 4
 
 [node name="HSeparator23" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Graphics/gfx_margin/gfx_scroll_container/vbox_graphics/hud_hud/hud_margin/hud_vbox" instance=ExtResource( 83 )]
 margin_top = 0.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 4.0
 
 [node name="gui_game_ui" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Graphics/gfx_margin/gfx_scroll_container/vbox_graphics/hud_hud/hud_margin/hud_vbox" instance=ExtResource( 81 )]
 margin_top = 8.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 36.0
 CheckButton_Text = "Game UI"
 variable_name_code = "game_ui"
@@ -2022,12 +2022,12 @@ tooltip = null
 
 [node name="HSeparator29" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Graphics/gfx_margin/gfx_scroll_container/vbox_graphics/hud_hud/hud_margin/hud_vbox" instance=ExtResource( 83 )]
 margin_top = 40.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 44.0
 
 [node name="ufv_use_fov" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Graphics/gfx_margin/gfx_scroll_container/vbox_graphics/hud_hud/hud_margin/hud_vbox" instance=ExtResource( 81 )]
 margin_top = 48.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 76.0
 CheckButton_Text = "Use FOV"
 variable_name_code = "use_fov"
@@ -2036,12 +2036,12 @@ tooltip = null
 
 [node name="HSeparator24" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Graphics/gfx_margin/gfx_scroll_container/vbox_graphics/hud_hud/hud_margin/hud_vbox" instance=ExtResource( 83 )]
 margin_top = 80.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 84.0
 
 [node name="hfs_hud_fov_scale" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Graphics/gfx_margin/gfx_scroll_container/vbox_graphics/hud_hud/hud_margin/hud_vbox" instance=ExtResource( 79 )]
 margin_top = 88.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 120.0
 label_text = "FOV Scale"
 variable_name_code = "hud_fov_scale"
@@ -2053,12 +2053,12 @@ tooltip = "Essentially the Zoom Scale"
 
 [node name="HSeparator25" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Graphics/gfx_margin/gfx_scroll_container/vbox_graphics/hud_hud/hud_margin/hud_vbox" instance=ExtResource( 83 )]
 margin_top = 124.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 128.0
 
 [node name="fms_fov_max_scale" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Graphics/gfx_margin/gfx_scroll_container/vbox_graphics/hud_hud/hud_margin/hud_vbox" instance=ExtResource( 79 )]
 margin_top = 132.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 164.0
 label_text = "FOV Max Scale"
 variable_name_code = "fov_max_scale"
@@ -2069,12 +2069,12 @@ step = 0.01
 
 [node name="HSeparator28" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Graphics/gfx_margin/gfx_scroll_container/vbox_graphics/hud_hud/hud_margin/hud_vbox" instance=ExtResource( 83 )]
 margin_top = 168.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 172.0
 
 [node name="fbc_force_big_cursor" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Graphics/gfx_margin/gfx_scroll_container/vbox_graphics/hud_hud/hud_margin/hud_vbox" instance=ExtResource( 81 )]
 margin_top = 176.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 204.0
 CheckButton_Text = "Force Big Cursor"
 variable_name_code = "force_big_cursor"
@@ -2083,26 +2083,26 @@ tooltip = null
 
 [node name="HSeparator26" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Graphics/gfx_margin/gfx_scroll_container/vbox_graphics/hud_hud/hud_margin/hud_vbox" instance=ExtResource( 83 )]
 margin_top = 208.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 212.0
 
 [node name="HSeparator23" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Graphics/gfx_margin/gfx_scroll_container/vbox_graphics" instance=ExtResource( 83 )]
 margin_top = 476.0
-margin_right = 577.0
+margin_right = 565.0
 margin_bottom = 480.0
 
 [node name="gfxb_groupbox" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Graphics/gfx_margin/gfx_scroll_container/vbox_graphics" instance=ExtResource( 78 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 480.0
-margin_right = 577.0
+margin_right = 565.0
 margin_bottom = 518.0
 text = "GRAPHICS BEHAVIOUR"
 hiding_container_node = "graphics_behaviour"
 
 [node name="gfxb_graphics_behaviour" type="Control" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Graphics/gfx_margin/gfx_scroll_container/vbox_graphics"]
 margin_top = 518.0
-margin_right = 577.0
+margin_right = 565.0
 margin_bottom = 772.0
 rect_min_size = Vector2( 0, 254 )
 rect_clip_content = true
@@ -2116,18 +2116,18 @@ margin_right = 0.0
 
 [node name="gfxb_vbox" type="VBoxContainer" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Graphics/gfx_margin/gfx_scroll_container/vbox_graphics/gfxb_graphics_behaviour/gfbx_margin"]
 margin_left = 14.0
-margin_right = 577.0
+margin_right = 565.0
 margin_bottom = 224.0
 size_flags_horizontal = 3
 custom_constants/separation = 4
 
 [node name="HSeparator23" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Graphics/gfx_margin/gfx_scroll_container/vbox_graphics/gfxb_graphics_behaviour/gfbx_margin/gfxb_vbox" instance=ExtResource( 83 )]
 margin_top = 0.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 4.0
 
 [node name="bhd_baby_head_down_fac" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Graphics/gfx_margin/gfx_scroll_container/vbox_graphics/gfxb_graphics_behaviour/gfbx_margin/gfxb_vbox" instance=ExtResource( 79 )]
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 40.0
 label_text = "Baby Head Down Factor"
 variable_name_code = "baby_head_down_fac"
@@ -2138,12 +2138,12 @@ step = 0.01
 
 [node name="HSeparator24" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Graphics/gfx_margin/gfx_scroll_container/vbox_graphics/gfxb_graphics_behaviour/gfbx_margin/gfxb_vbox" instance=ExtResource( 83 )]
 margin_top = 44.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 48.0
 
 [node name="bbd_baby_body_down_fac" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Graphics/gfx_margin/gfx_scroll_container/vbox_graphics/gfxb_graphics_behaviour/gfbx_margin/gfxb_vbox" instance=ExtResource( 79 )]
 margin_top = 52.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 84.0
 label_text = "Baby Body Down Factor"
 variable_name_code = "baby_body_down_fac"
@@ -2154,12 +2154,12 @@ step = 0.01
 
 [node name="HSeparator25" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Graphics/gfx_margin/gfx_scroll_container/vbox_graphics/gfxb_graphics_behaviour/gfbx_margin/gfxb_vbox" instance=ExtResource( 83 )]
 margin_top = 88.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 92.0
 
 [node name="ohf_old_head_forward_fac" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Graphics/gfx_margin/gfx_scroll_container/vbox_graphics/gfxb_graphics_behaviour/gfbx_margin/gfxb_vbox" instance=ExtResource( 79 )]
 margin_top = 96.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 128.0
 label_text = "Old Head Forward Factor"
 variable_name_code = "old_head_forward_fac"
@@ -2170,12 +2170,12 @@ step = 0.01
 
 [node name="HSeparator26" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Graphics/gfx_margin/gfx_scroll_container/vbox_graphics/gfxb_graphics_behaviour/gfbx_margin/gfxb_vbox" instance=ExtResource( 83 )]
 margin_top = 132.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 136.0
 
 [node name="ohd_old_head_down_fac" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Graphics/gfx_margin/gfx_scroll_container/vbox_graphics/gfxb_graphics_behaviour/gfbx_margin/gfxb_vbox" instance=ExtResource( 79 )]
 margin_top = 140.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 172.0
 label_text = "Old Head Down Factor"
 variable_name_code = "old_head_down_fac"
@@ -2186,12 +2186,12 @@ step = 0.01
 
 [node name="HSeparator27" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Graphics/gfx_margin/gfx_scroll_container/vbox_graphics/gfxb_graphics_behaviour/gfbx_margin/gfxb_vbox" instance=ExtResource( 83 )]
 margin_top = 176.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 180.0
 
 [node name="gtb_ground_tile_blur" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Graphics/gfx_margin/gfx_scroll_container/vbox_graphics/gfxb_graphics_behaviour/gfbx_margin/gfxb_vbox" instance=ExtResource( 79 )]
 margin_top = 184.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 216.0
 label_text = "Ground Tile Edge Blur Radius"
 variable_name_code = "ground_tile_blur"
@@ -2200,7 +2200,7 @@ max_value = 64.0
 
 [node name="HSeparator28" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Graphics/gfx_margin/gfx_scroll_container/vbox_graphics/gfxb_graphics_behaviour/gfbx_margin/gfxb_vbox" instance=ExtResource( 83 )]
 margin_top = 220.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 224.0
 
 [node name="Commands" type="Tabs" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root"]
@@ -2241,14 +2241,14 @@ __meta__ = {
 [node name="emo_groupbox" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox" instance=ExtResource( 78 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 577.0
+margin_right = 565.0
 margin_bottom = 38.0
 text = "EMOTION SETTINGS"
 hiding_container_node = "emotion_settings"
 
 [node name="emo_emotions" type="Control" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox"]
 margin_top = 42.0
-margin_right = 577.0
+margin_right = 565.0
 margin_bottom = 1396.0
 rect_min_size = Vector2( 0, 1354 )
 rect_clip_content = true
@@ -2262,18 +2262,18 @@ margin_right = 0.0
 
 [node name="emo_vbox" type="VBoxContainer" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/emo_emotions/emo_margin"]
 margin_left = 14.0
-margin_right = 577.0
+margin_right = 565.0
 margin_bottom = 1324.0
 size_flags_horizontal = 3
 custom_constants/separation = 4
 
 [node name="HSeparator31" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/emo_emotions/emo_margin/emo_vbox" instance=ExtResource( 83 )]
 margin_top = 0.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 4.0
 
 [node name="emd_emotion_duration" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/emo_emotions/emo_margin/emo_vbox" instance=ExtResource( 79 )]
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 40.0
 label_text = "Emotion Duration"
 variable_name_code = "emotion_duration"
@@ -2285,345 +2285,345 @@ rounded = true
 
 [node name="HSeparator23" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/emo_emotions/emo_margin/emo_vbox" instance=ExtResource( 83 )]
 margin_top = 44.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 48.0
 
 [node name="ehp_happy" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/emo_emotions/emo_margin/emo_vbox" instance=ExtResource( 77 )]
 margin_top = 52.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 84.0
 emo_label_text = "Happy"
 
 [node name="HSeparator33" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/emo_emotions/emo_margin/emo_vbox" instance=ExtResource( 83 )]
 margin_top = 88.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 92.0
 
 [node name="emd_mad" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/emo_emotions/emo_margin/emo_vbox" instance=ExtResource( 77 )]
 margin_top = 96.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 128.0
 emo_label_text = "Mad"
 
 [node name="HSeparator34" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/emo_emotions/emo_margin/emo_vbox" instance=ExtResource( 83 )]
 margin_top = 132.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 136.0
 
 [node name="eag_angry" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/emo_emotions/emo_margin/emo_vbox" instance=ExtResource( 77 )]
 margin_top = 140.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 172.0
 emo_label_text = "Angry"
 
 [node name="HSeparator35" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/emo_emotions/emo_margin/emo_vbox" instance=ExtResource( 83 )]
 margin_top = 176.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 180.0
 
 [node name="esd_sad" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/emo_emotions/emo_margin/emo_vbox" instance=ExtResource( 77 )]
 margin_top = 184.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 216.0
 emo_label_text = "Sad"
 
 [node name="HSeparator36" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/emo_emotions/emo_margin/emo_vbox" instance=ExtResource( 83 )]
 margin_top = 220.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 224.0
 
 [node name="edv_devious" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/emo_emotions/emo_margin/emo_vbox" instance=ExtResource( 77 )]
 margin_top = 228.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 260.0
 emo_label_text = "Devious"
 
 [node name="HSeparator37" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/emo_emotions/emo_margin/emo_vbox" instance=ExtResource( 83 )]
 margin_top = 264.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 268.0
 
 [node name="ejy_joy" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/emo_emotions/emo_margin/emo_vbox" instance=ExtResource( 77 )]
 margin_top = 272.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 304.0
 emo_label_text = "Joy"
 
 [node name="HSeparator38" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/emo_emotions/emo_margin/emo_vbox" instance=ExtResource( 83 )]
 margin_top = 308.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 312.0
 
 [node name="ebl_blush" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/emo_emotions/emo_margin/emo_vbox" instance=ExtResource( 77 )]
 margin_top = 316.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 348.0
 emo_label_text = "Blush"
 
 [node name="HSeparator39" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/emo_emotions/emo_margin/emo_vbox" instance=ExtResource( 83 )]
 margin_top = 352.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 356.0
 
 [node name="ehu_hubba" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/emo_emotions/emo_margin/emo_vbox" instance=ExtResource( 77 )]
 margin_top = 360.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 392.0
 emo_label_text = "Hubba"
 
 [node name="HSeparator27" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/emo_emotions/emo_margin/emo_vbox" instance=ExtResource( 83 )]
 margin_top = 396.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 400.0
 
 [node name="eil_ill" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/emo_emotions/emo_margin/emo_vbox" instance=ExtResource( 77 )]
 margin_top = 404.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 436.0
 emo_label_text = "Ill"
 
 [node name="HSeparator25" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/emo_emotions/emo_margin/emo_vbox" instance=ExtResource( 83 )]
 margin_top = 440.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 444.0
 
 [node name="eyo_yoohoo" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/emo_emotions/emo_margin/emo_vbox" instance=ExtResource( 77 )]
 margin_top = 448.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 480.0
 emo_label_text = "Yoohoo"
 
 [node name="HSeparator28" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/emo_emotions/emo_margin/emo_vbox" instance=ExtResource( 83 )]
 margin_top = 484.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 488.0
 
 [node name="ehm_hmph" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/emo_emotions/emo_margin/emo_vbox" instance=ExtResource( 77 )]
 margin_top = 492.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 524.0
 emo_label_text = "Hmph"
 
 [node name="HSeparator30" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/emo_emotions/emo_margin/emo_vbox" instance=ExtResource( 83 )]
 margin_top = 528.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 532.0
 
 [node name="elo_love" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/emo_emotions/emo_margin/emo_vbox" instance=ExtResource( 77 )]
 margin_top = 536.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 568.0
 emo_label_text = "Love"
 
 [node name="HSeparator29" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/emo_emotions/emo_margin/emo_vbox" instance=ExtResource( 83 )]
 margin_top = 572.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 576.0
 
 [node name="eor_oreally" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/emo_emotions/emo_margin/emo_vbox" instance=ExtResource( 77 )]
 margin_top = 580.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 612.0
 emo_label_text = "Oreally"
 
 [node name="HSeparator32" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/emo_emotions/emo_margin/emo_vbox" instance=ExtResource( 83 )]
 margin_top = 616.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 620.0
 
 [node name="esk_shock" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/emo_emotions/emo_margin/emo_vbox" instance=ExtResource( 77 )]
 margin_top = 624.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 656.0
 emo_label_text = "Shock"
 
 [node name="HSeparator40" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/emo_emotions/emo_margin/emo_vbox" instance=ExtResource( 83 )]
 margin_top = 660.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 664.0
 
 [node name="ecl_clown" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/emo_emotions/emo_margin/emo_vbox" instance=ExtResource( 77 )]
 margin_top = 668.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 700.0
 emo_label_text = "Clown"
 
 [node name="HSeparator41" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/emo_emotions/emo_margin/emo_vbox" instance=ExtResource( 83 )]
 margin_top = 704.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 708.0
 
 [node name="epg_pog" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/emo_emotions/emo_margin/emo_vbox" instance=ExtResource( 77 )]
 margin_top = 712.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 744.0
 emo_label_text = "Pog"
 
 [node name="HSeparator24" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/emo_emotions/emo_margin/emo_vbox" instance=ExtResource( 83 )]
 margin_top = 748.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 752.0
 
 [node name="ecr_cry" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/emo_emotions/emo_margin/emo_vbox" instance=ExtResource( 77 )]
 margin_top = 756.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 788.0
 emo_label_text = "Cry"
 
 [node name="HSeparator26" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/emo_emotions/emo_margin/emo_vbox" instance=ExtResource( 83 )]
 margin_top = 792.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 796.0
 
 [node name="etn_tongue" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/emo_emotions/emo_margin/emo_vbox" instance=ExtResource( 77 )]
 margin_top = 800.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 832.0
 emo_label_text = "Tongue"
 
 [node name="HSeparator42" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/emo_emotions/emo_margin/emo_vbox" instance=ExtResource( 83 )]
 margin_top = 836.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 840.0
 
 [node name="esl_sleep" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/emo_emotions/emo_margin/emo_vbox" instance=ExtResource( 77 )]
 margin_top = 844.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 876.0
 emo_label_text = "Sleep"
 
 [node name="HSeparator43" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/emo_emotions/emo_margin/emo_vbox" instance=ExtResource( 83 )]
 margin_top = 880.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 884.0
 
 [node name="ebl_broke_love" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/emo_emotions/emo_margin/emo_vbox" instance=ExtResource( 77 )]
 margin_top = 888.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 920.0
 emo_label_text = "Broke Love"
 
 [node name="HSeparator44" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/emo_emotions/emo_margin/emo_vbox" instance=ExtResource( 83 )]
 margin_top = 924.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 928.0
 
 [node name="eer_eye_roll" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/emo_emotions/emo_margin/emo_vbox" instance=ExtResource( 77 )]
 margin_top = 932.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 964.0
 emo_label_text = "Eye Roll"
 
 [node name="HSeparator45" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/emo_emotions/emo_margin/emo_vbox" instance=ExtResource( 83 )]
 margin_top = 968.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 972.0
 
 [node name="erm_erm" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/emo_emotions/emo_margin/emo_vbox" instance=ExtResource( 77 )]
 margin_top = 976.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 1008.0
 emo_label_text = "Erm"
 
 [node name="HSeparator46" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/emo_emotions/emo_margin/emo_vbox" instance=ExtResource( 83 )]
 margin_top = 1012.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 1016.0
 
 [node name="epl_please" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/emo_emotions/emo_margin/emo_vbox" instance=ExtResource( 77 )]
 margin_top = 1020.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 1052.0
 emo_label_text = "Please"
 
 [node name="HSeparator47" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/emo_emotions/emo_margin/emo_vbox" instance=ExtResource( 83 )]
 margin_top = 1056.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 1060.0
 
 [node name="eck_cook" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/emo_emotions/emo_margin/emo_vbox" instance=ExtResource( 77 )]
 margin_top = 1064.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 1096.0
 emo_label_text = "Cook"
 
 [node name="HSeparator48" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/emo_emotions/emo_margin/emo_vbox" instance=ExtResource( 83 )]
 margin_top = 1100.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 1104.0
 
 [node name="esm_smith" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/emo_emotions/emo_margin/emo_vbox" instance=ExtResource( 77 )]
 margin_top = 1108.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 1140.0
 emo_label_text = "Smith"
 
 [node name="HSeparator49" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/emo_emotions/emo_margin/emo_vbox" instance=ExtResource( 83 )]
 margin_top = 1144.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 1148.0
 
 [node name="emi_miner" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/emo_emotions/emo_margin/emo_vbox" instance=ExtResource( 77 )]
 margin_top = 1152.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 1184.0
 emo_label_text = "Miner"
 
 [node name="HSeparator50" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/emo_emotions/emo_margin/emo_vbox" instance=ExtResource( 83 )]
 margin_top = 1188.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 1192.0
 
 [node name="efa_farmer" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/emo_emotions/emo_margin/emo_vbox" instance=ExtResource( 77 )]
 margin_top = 1196.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 1228.0
 emo_label_text = "Farmer"
 
 [node name="HSeparator51" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/emo_emotions/emo_margin/emo_vbox" instance=ExtResource( 83 )]
 margin_top = 1232.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 1236.0
 
 [node name="eta_tailor" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/emo_emotions/emo_margin/emo_vbox" instance=ExtResource( 77 )]
 margin_top = 1240.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 1272.0
 emo_label_text = "Tailor"
 
 [node name="HSeparator52" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/emo_emotions/emo_margin/emo_vbox" instance=ExtResource( 83 )]
 margin_top = 1276.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 1280.0
 
 [node name="ehu_hunter" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/emo_emotions/emo_margin/emo_vbox" instance=ExtResource( 77 )]
 margin_top = 1284.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 1316.0
 emo_label_text = "Hunter"
 
 [node name="HSeparator53" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/emo_emotions/emo_margin/emo_vbox" instance=ExtResource( 83 )]
 margin_top = 1320.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 1324.0
 
 [node name="HSeparator26" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox" instance=ExtResource( 83 )]
 margin_top = 1400.0
-margin_right = 577.0
+margin_right = 565.0
 margin_bottom = 1404.0
 
 [node name="fer_groupbox" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox" instance=ExtResource( 78 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 1408.0
-margin_right = 577.0
+margin_right = 565.0
 margin_bottom = 1446.0
 text = "FERTILITY COMMANDS"
 hiding_container_node = "fertility_commands"
 
 [node name="fer_fertility" type="Control" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox"]
 margin_top = 1450.0
-margin_right = 577.0
+margin_right = 565.0
 margin_bottom = 1571.0
 rect_min_size = Vector2( 0, 121 )
 rect_clip_content = true
@@ -2637,24 +2637,24 @@ margin_right = 0.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/fer_fertility/fer_margin"]
 margin_left = 14.0
-margin_right = 577.0
+margin_right = 565.0
 margin_bottom = 91.0
 
 [node name="HSeparator27" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/fer_fertility/fer_margin/VBoxContainer" instance=ExtResource( 83 )]
 margin_top = 0.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 4.0
 
 [node name="fer_grid" type="GridContainer" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/fer_fertility/fer_margin/VBoxContainer"]
 margin_top = 8.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 91.0
 custom_constants/vseparation = 10
 custom_constants/hseparation = 10
 columns = 2
 
 [node name="fer_iwantbabies" type="Label" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/fer_fertility/fer_margin/VBoxContainer/fer_grid"]
-margin_right = 276.0
+margin_right = 270.0
 margin_bottom = 21.0
 size_flags_horizontal = 3
 theme = ExtResource( 25 )
@@ -2665,8 +2665,8 @@ __meta__ = {
 }
 
 [node name="fer_iwantbb" type="Label" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/fer_fertility/fer_margin/VBoxContainer/fer_grid"]
-margin_left = 286.0
-margin_right = 562.0
+margin_left = 280.0
+margin_right = 550.0
 margin_bottom = 21.0
 size_flags_horizontal = 3
 theme = ExtResource( 25 )
@@ -2678,7 +2678,7 @@ __meta__ = {
 
 [node name="fer_letmebe" type="Label" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/fer_fertility/fer_margin/VBoxContainer/fer_grid"]
 margin_top = 31.0
-margin_right = 276.0
+margin_right = 270.0
 margin_bottom = 52.0
 size_flags_horizontal = 3
 theme = ExtResource( 25 )
@@ -2689,9 +2689,9 @@ __meta__ = {
 }
 
 [node name="fer_lemmebe" type="Label" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/fer_fertility/fer_margin/VBoxContainer/fer_grid"]
-margin_left = 286.0
+margin_left = 280.0
 margin_top = 31.0
-margin_right = 562.0
+margin_right = 550.0
 margin_bottom = 52.0
 size_flags_horizontal = 3
 theme = ExtResource( 25 )
@@ -2703,7 +2703,7 @@ __meta__ = {
 
 [node name="fer_gemmebb" type="Label" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/fer_fertility/fer_margin/VBoxContainer/fer_grid"]
 margin_top = 62.0
-margin_right = 276.0
+margin_right = 270.0
 margin_bottom = 83.0
 size_flags_horizontal = 3
 theme = ExtResource( 25 )
@@ -2714,9 +2714,9 @@ __meta__ = {
 }
 
 [node name="fer_lifeflowslike" type="Label" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/fer_fertility/fer_margin/VBoxContainer/fer_grid"]
-margin_left = 286.0
+margin_left = 280.0
 margin_top = 62.0
-margin_right = 562.0
+margin_right = 550.0
 margin_bottom = 83.0
 size_flags_horizontal = 3
 theme = ExtResource( 25 )
@@ -2728,21 +2728,21 @@ __meta__ = {
 
 [node name="HSeparator23" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox" instance=ExtResource( 83 )]
 margin_top = 1575.0
-margin_right = 577.0
+margin_right = 565.0
 margin_bottom = 1579.0
 
 [node name="ifr_groupbox" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox" instance=ExtResource( 78 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 1583.0
-margin_right = 577.0
+margin_right = 565.0
 margin_bottom = 1621.0
 text = "INFERTILITY COMMANDS"
 hiding_container_node = "infertility_commands"
 
 [node name="ifr_infertility" type="Control" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox"]
 margin_top = 1625.0
-margin_right = 577.0
+margin_right = 565.0
 margin_bottom = 1808.0
 rect_min_size = Vector2( 0, 183 )
 rect_clip_content = true
@@ -2756,24 +2756,24 @@ margin_right = 0.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/ifr_infertility/ifr_margin"]
 margin_left = 14.0
-margin_right = 577.0
+margin_right = 565.0
 margin_bottom = 153.0
 
 [node name="HSeparator24" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/ifr_infertility/ifr_margin/VBoxContainer" instance=ExtResource( 83 )]
 margin_top = 0.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 4.0
 
 [node name="ifr_grid" type="GridContainer" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/ifr_infertility/ifr_margin/VBoxContainer"]
 margin_top = 8.0
-margin_right = 563.0
+margin_right = 551.0
 margin_bottom = 153.0
 custom_constants/vseparation = 10
 custom_constants/hseparation = 10
 columns = 2
 
 [node name="ifr_nobb" type="Label" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/ifr_infertility/ifr_margin/VBoxContainer/ifr_grid"]
-margin_right = 276.0
+margin_right = 270.0
 margin_bottom = 21.0
 size_flags_horizontal = 3
 theme = ExtResource( 25 )
@@ -2785,8 +2785,8 @@ __meta__ = {
 }
 
 [node name="ifr_playsolo" type="Label" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/ifr_infertility/ifr_margin/VBoxContainer/ifr_grid"]
-margin_left = 286.0
-margin_right = 562.0
+margin_left = 280.0
+margin_right = 550.0
 margin_bottom = 21.0
 size_flags_horizontal = 3
 theme = ExtResource( 25 )
@@ -2798,7 +2798,7 @@ __meta__ = {
 
 [node name="ifr_idon-twantbb" type="Label" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/ifr_infertility/ifr_margin/VBoxContainer/ifr_grid"]
 margin_top = 31.0
-margin_right = 276.0
+margin_right = 270.0
 margin_bottom = 52.0
 size_flags_horizontal = 3
 theme = ExtResource( 25 )
@@ -2809,9 +2809,9 @@ __meta__ = {
 }
 
 [node name="ifr_idontwantbb" type="Label" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/ifr_infertility/ifr_margin/VBoxContainer/ifr_grid"]
-margin_left = 286.0
+margin_left = 280.0
 margin_top = 31.0
-margin_right = 562.0
+margin_right = 550.0
 margin_bottom = 52.0
 size_flags_horizontal = 3
 theme = ExtResource( 25 )
@@ -2823,7 +2823,7 @@ __meta__ = {
 
 [node name="ifr_idon-twantbabies" type="Label" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/ifr_infertility/ifr_margin/VBoxContainer/ifr_grid"]
 margin_top = 62.0
-margin_right = 276.0
+margin_right = 270.0
 margin_bottom = 83.0
 size_flags_horizontal = 3
 theme = ExtResource( 25 )
@@ -2834,9 +2834,9 @@ __meta__ = {
 }
 
 [node name="ifr_idontwantbabies" type="Label" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/ifr_infertility/ifr_margin/VBoxContainer/ifr_grid"]
-margin_left = 286.0
+margin_left = 280.0
 margin_top = 62.0
-margin_right = 562.0
+margin_right = 550.0
 margin_bottom = 83.0
 size_flags_horizontal = 3
 theme = ExtResource( 25 )
@@ -2848,7 +2848,7 @@ __meta__ = {
 
 [node name="ifr_letmebeifr" type="Label" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/ifr_infertility/ifr_margin/VBoxContainer/ifr_grid"]
 margin_top = 93.0
-margin_right = 276.0
+margin_right = 270.0
 margin_bottom = 114.0
 size_flags_horizontal = 3
 theme = ExtResource( 25 )
@@ -2859,9 +2859,9 @@ __meta__ = {
 }
 
 [node name="ifr_lemmebeifr" type="Label" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/ifr_infertility/ifr_margin/VBoxContainer/ifr_grid"]
-margin_left = 286.0
+margin_left = 280.0
 margin_top = 93.0
-margin_right = 562.0
+margin_right = 550.0
 margin_bottom = 114.0
 size_flags_horizontal = 3
 theme = ExtResource( 25 )
@@ -2873,7 +2873,7 @@ __meta__ = {
 
 [node name="ifr_lonelinessblessing" type="Label" parent="mvb_main_vbox/VSplitContainer/VBoxContainer/HSplitContainer/cnt_content/tab_root/Commands/cmd_margin/cmd_scroll_container/emo_vbox/ifr_infertility/ifr_margin/VBoxContainer/ifr_grid"]
 margin_top = 124.0
-margin_right = 276.0
+margin_right = 270.0
 margin_bottom = 145.0
 size_flags_horizontal = 3
 theme = ExtResource( 25 )
