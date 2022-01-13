@@ -106,11 +106,38 @@ func closeProgram():
 
 
 func _on_VSplitContainer_dragged(offset):
-	if offset <= 30:
-		TL_Node.bnr_label.visible = false
-	else:
-		TL_Node.bnr_label.visible = true
 	
-	var max_offset = 200
-	if offset > max_offset:
-		TL_Node.vsplitcontainer.split_offset = max_offset
+	TL_Node.bnr_banner.get_child(0).modulate = Color(1, 1, 1, clamp(TL_Node.bnr_banner.get_child(0).rect_position.y * 4, 0, 100) / 100)
+	if TL_Node.bnr_banner.get_child(0).rect_position.y < 1:
+		TL_Node.bnr_banner.get_child(0).visible = false
+	else:
+		TL_Node.bnr_banner.get_child(0).visible = true
+	
+	if offset > TL_Variables.vsplit_max_offset:
+		TL_Node.vsplitcontainer.split_offset = TL_Variables.vsplit_max_offset
+
+
+func _on_bnr_button_pressed():
+	var file = File.new()
+	file.open(TL_Path.binary, File.READ)
+	OS.clipboard = file.get_as_text().replace("\n", "")
+	
+	var tween = TL_Node.not_notification.get_node("not_tween_in")
+	var timer = TL_Node.not_notification.get_node("not_timer")
+	
+	TL_Node.not_notification.visible = true
+	tween.interpolate_property(TL_Node.not_notification, "modulate",
+			Color(1, 1, 1, 0), Color(1, 1, 1, 1), 0.65,
+			Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
+	tween.start()
+	timer.start()
+
+
+func _on_not_timer_timeout():
+	var tween = TL_Node.not_notification.get_node("not_tween_out")
+	var timer = TL_Node.not_notification.get_node("not_timer")
+	
+	tween.interpolate_property(TL_Node.not_notification, "modulate",
+			Color(1, 1, 1, 1), Color(1, 1, 1, 0), 0.65,
+			Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
+	tween.start()

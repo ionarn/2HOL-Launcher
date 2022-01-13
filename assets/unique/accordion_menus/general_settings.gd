@@ -22,7 +22,7 @@ func load_values():
 	]
 	for node in TL_Variables.resource_array:
 		node["Node"].connect("on_value_changed", self, "_on_value_change")
-	$gen_groupbox.connect("reset_pressed", self, "_general_reset_pressed")
+	TL_Node.gen_groupbox.connect("reset_pressed", self, "_general_reset_pressed")
 	reset_button_visibility()
 
 
@@ -46,18 +46,18 @@ func reset_button_visibility():
 	for node in TL_Variables.resource_array:
 		if "checkbutton" in node["Type"]:
 			if bool(node["Node"].get_node("gcb_checkbutton").pressed) != bool(node["default_value"]):
-				$gen_groupbox/MarginContainer/HBox_Video/name_reset/reset.visible = true
+				TL_Node.gen_groupbox.find_node("acm_reset").set_visible(true)
 				break
 			else:
 				if TL_Variables.resource_array.find(node) == (TL_Variables.resource_array.size() - 1):
-					$gen_groupbox/MarginContainer/HBox_Video/name_reset/reset.visible = false
+					TL_Node.gen_groupbox.find_node("acm_reset").set_visible(false)
 		elif "spinbox" in node["Type"]:
 			if float(node["Node"].get_node("gsb_spinbox").value) != float(node["default_value"]):
-				$gen_groupbox/MarginContainer/HBox_Video/name_reset/reset.visible = true
+				TL_Node.gen_groupbox.find_node("acm_reset").set_visible(true)
 				break
 			else:
 				if TL_Variables.resource_array.find(node) == (TL_Variables.resource_array.size() - 1):
-					$gen_groupbox/MarginContainer/HBox_Video/name_reset/reset.visible = false
+					TL_Node.gen_groupbox.find_node("acm_reset").set_visible(false)
 
 
 ''' ON VALUE CHANGE CHECK RESET BUTTON VISIBILITY '''

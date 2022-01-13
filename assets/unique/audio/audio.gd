@@ -131,8 +131,10 @@ func _on_mv1_checkbutton_toggled(button_pressed):
 	TL_Node.music_slider.editable = button_pressed
 	if button_pressed == true:
 		TL_Node.music_slider.mouse_filter = 0
+		TL_Node.music_slider.set("custom_styles/grabber_area", TL_Style.slider_normal)
 	else:
 		TL_Node.music_slider.mouse_filter = 2
+		TL_Node.music_slider.set("custom_styles/grabber_area", TL_Style.slider_disabled)
 
 
 func _on_mv2_slider_value_changed(value):
@@ -154,8 +156,10 @@ func _on_sfx1_checkbutton_toggled(button_pressed):
 	TL_Node.sound_slider.editable = button_pressed
 	if button_pressed == true:
 		TL_Node.sound_slider.mouse_filter = 0
+		TL_Node.sound_slider.set("custom_styles/grabber_area", TL_Style.slider_normal)
 	else:
 		TL_Node.sound_slider.mouse_filter = 2
+		TL_Node.sound_slider.set("custom_styles/grabber_area", TL_Style.slider_disabled)
 
 
 func _on_sfx2_slider_value_changed(value):
@@ -216,10 +220,11 @@ func label_value(value, label):
 
 
 func save_checkbutton_value(path, state):
-	var file = File.new() #new file class on which you will call file class methods
-	file.open(path, File.WRITE)  #the file is now opened in the background
-	file.store_string(str(int(state)))
-	file.close()
+	if TL_Variables.startup_load_finished == true:
+		var file = File.new() #new file class on which you will call file class methods
+		file.open(path, File.WRITE)  #the file is now opened in the background
+		file.store_string(str(int(state)))
+		file.close()
 
 
 func save_slider_value(path, checkbutton, slider_value):
@@ -277,22 +282,26 @@ func audio_toggle():
 	if TL_Node.audio_checkbutton.pressed == false:
 		TL_Node.audio_slider.mouse_filter = 2
 		TL_Node.audio_slider.editable = false
+		TL_Node.audio_slider.set("custom_styles/grabber_area", TL_Style.slider_disabled)
 		
 		TL_Node.music_checkbutton.pressed = false
 		TL_Node.music_checkbutton.mouse_filter = 2
 		TL_Node.music_checkbutton.disabled = true
 		TL_Node.music_slider.mouse_filter = 2
 		TL_Node.music_slider.editable = false
+		TL_Node.music_slider.set("custom_styles/grabber_area", TL_Style.slider_disabled)
 		
 		TL_Node.sound_checkbutton.pressed = false
 		TL_Node.sound_checkbutton.mouse_filter = 2
 		TL_Node.sound_checkbutton.disabled = true
 		TL_Node.sound_slider.editable = false
 		TL_Node.sound_slider.mouse_filter = 2
+		TL_Node.sound_slider.set("custom_styles/grabber_area", TL_Style.slider_disabled)
 		
 	elif TL_Node.audio_checkbutton.pressed == true:
 		TL_Node.audio_slider.mouse_filter = 0
 		TL_Node.audio_slider.editable = true
+		TL_Node.audio_slider.set("custom_styles/grabber_area", TL_Style.slider_normal)
 		
 		var music = bool(int(config.get_value(section, 'music_off', null)))
 		TL_Node.music_checkbutton.pressed = !music
@@ -300,6 +309,7 @@ func audio_toggle():
 		TL_Node.music_checkbutton.disabled = false
 		TL_Node.music_slider.mouse_filter = 0
 		TL_Node.music_slider.editable = true
+		TL_Node.music_slider.set("custom_styles/grabber_area", TL_Style.slider_normal)
 		
 		var sound = bool(int(config.get_value(section, 'sound_off', null)))
 		TL_Node.sound_checkbutton.pressed = !sound
@@ -307,3 +317,4 @@ func audio_toggle():
 		TL_Node.sound_checkbutton.disabled = false
 		TL_Node.sound_slider.editable = true
 		TL_Node.sound_slider.mouse_filter = 0
+		TL_Node.sound_slider.set("custom_styles/grabber_area", TL_Style.slider_normal)

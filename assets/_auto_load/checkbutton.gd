@@ -11,10 +11,11 @@ func load_ini(checkbutton_node, file_path, inverted = false):
 
 ''' SAVE CHECKBUTTON STATE TO INI '''
 func save_ini(checkbutton_node, file_path, inverted = false):
-	var file = File.new() # new file class on which you will call file class methods
-	file.open(file_path, file.WRITE) # the file is now opened in the background
-	file.store_string(str(int(flip(checkbutton_node.pressed, inverted))))
-	file.close()
+	if TL_Variables.startup_load_finished == true:
+		var file = File.new() # new file class on which you will call file class methods
+		file.open(file_path, file.WRITE) # the file is now opened in the background
+		file.store_string(str(int(flip(checkbutton_node.pressed, inverted))))
+		file.close()
 
 
 ''' RESET CHECKBUTTON STATE TO DEFAULT '''

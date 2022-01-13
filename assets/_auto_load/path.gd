@@ -13,9 +13,14 @@ const username = "./settings/email.ini"
 const key = "./settings/accountKey.ini"
 
 # BASIS SETTINGS
+
+const spawn_seed = "./settings/spawnSeed.ini"
+const twin_code = "./settings/twinCode.ini"
+
 # -- Video
 const resolution_x = "./settings/screenWidth.ini"
 const resolution_y = "./settings/screenHeight.ini"
+const borderless = "./settings/borderless.ini"
 const fullscreen = "./settings/fullscreen.ini"
 const mouse_pointer = "./settings/cursorMode.ini"
 const vsync = "./settings/countingOnVsync.ini"

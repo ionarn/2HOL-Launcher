@@ -13,18 +13,23 @@ var load_response = config.load(TL_Path.launcher_settings)
 func on_loading_ready():
 	TL_Signal.connect("ready_load_checkbutton", self, "_ready_load_checkbutton")
 	TL_Signal.connect("ready_load_spinbox", self, "_ready_load_spinbox")
+	TL_Signal.emit_signal("register_node")
+	
+	TL_Node.window_resize_control.visible = true
+	TL_Node.pop_popups.visible = true
 	TL_Node.title_bar.connect_item_pressed()
 	
 	TL_Node.nav_navigation_panel.load_menu_selection()
 	TL_Node.pop_popup_background.set_ok_text()
+	TL_Node.website_links.set_hint_tooltip()
 	
 	var file = File.new() # new file class on which you will call file class methods
 	file.open(TL_Path.data_version_number, File.READ) # the file is now opened in the background
 	TL_Node.version.text = "2HOL Version " + file.get_as_text()
-	
 	file.open(TL_Path.binary, File.READ)
 	TL_Node.bnr_label.text = file.get_as_text()
-	var game_file_path = ""
+	
+	var game_file_path
 	if OS.get_name() == "Windows":
 		game_file_path = TL_Path.game_file
 	elif OS.get_name() == "X11":
@@ -37,6 +42,8 @@ func on_loading_ready():
 		# BASIC SETTINGS
 		TL_Node.fullscreen.load_value()
 		TL_Node.resolution.load_value()
+		TL_Node.borderless.load_value()
+		print("BORDERLESS NODE: " + str(TL_Node.borderless_checkbutton))
 		TL_Node.mousepointer.load_value()
 		TL_Node.vsync.load_value()
 		
@@ -74,13 +81,16 @@ func on_loading_ready():
 			TL_Node.emotion_hunter.load_value()
 		
 		if file.file_exists(TL_Path.launcher_settings) == true:
-			TL_Node.spawn_seed.load_values()
+			
+			TL_Node.seed_script.load_values()
+			TL_Node.twin_code.load_value()
+			
 			TL_Node.audio.load_values()
-			TL_Node.network.load_values()
+			TL_Node.network_script.load_values()
 			TL_Node.font_size.load_value()
 
 			# GAME SETTINGS
-			TL_Node.general_settings.load_values()
+			TL_Node.general_settings_script.load_values()
 			
 			TL_Node.auto_login.load_value()
 			TL_Node.hard_to_quit.load_value()
@@ -117,6 +127,14 @@ func on_loading_ready():
 			TL_Node.mods_main_script.load_values()
 			TL_Node.htw_show_player_info.load_value()
 			
+			TL_Variables.startup_load_finished = true
+			
+			TL_Node.spawn_settings.load_values()
+			TL_Node.vid1_video.load_values()
+			
+			print("STARTUP LOAD FINISHED: " + str(TL_Variables.startup_load_finished))
+			
+#			TL_Node.change_log.get_child(0).get_child(0).load_value()
 #		else:
 #			config.set_value("defaults", "allowSavingSpeech", 0)
 #			config.set_value("defaults", "screenHeight", 720)

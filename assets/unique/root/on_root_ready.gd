@@ -6,6 +6,7 @@ signal is_ready
 func _ready():
 	emit_signal("is_ready")
 	TL_Node.load_variables()
+	TL_Signal.emit_signal("register_node")
 	TL_Font.load_variables()
 	TL_Default.load_variables()
 	TL_Scene.load_variables()

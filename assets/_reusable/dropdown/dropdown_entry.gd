@@ -39,3 +39,11 @@ func _on_entry_selection_mouse_entered():
 
 func _on_entry_selection_mouse_exited():
 	$Control/entry_removal.texture_normal = TL_Icon.remove_transparent
+
+
+func _on_entry_removal_mouse_entered():
+	$entry_selection.set("custom_styles/normal", TL_Style.dropdown_entry_hover)
+
+
+func _on_entry_removal_mouse_exited():
+	$entry_selection.set("custom_styles/normal", TL_Style.dropdown_entry_normal)

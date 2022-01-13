@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "tool
+extends Control
+
+export(NodePath) var containing_node setget set_containing_node, get_containing_node
+
+
+func set_containing_node(new_node):
+	containing_node = new_node
+	if containing_node:
+		rect_min_size.y = containing_node.rect_size.y
+
+
+func get_containing_node():
+	return containing_node
+"
+
+[node name="control_content_container" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_clip_content = true
+script = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

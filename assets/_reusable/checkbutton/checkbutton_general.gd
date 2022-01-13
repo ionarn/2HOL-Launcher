@@ -8,10 +8,12 @@ signal on_value_changed
 var default_setting
 var ini_path
 
+
+
 export(String) var CheckButton_Text = "VSync" setget checkbutton_text_set, checkbutton_text_get
 export(String) var variable_name_code
 export(bool) var invert_bool = false
-export(String, MULTILINE) var tooltip
+export(String, MULTILINE) var tooltip = ""
 
 
 #	-------------------------------------------------------
@@ -27,7 +29,7 @@ func load_value():
 	
 	TL_CheckButton.load_ini($gcb_checkbutton, ini_path, invert_bool)
 	TL_CheckButton.reset_button_visibility($gcb_checkbutton, $gcb_reset, default_setting, invert_bool)
-	$gcb_checkbutton.hint_tooltip = tooltip
+#	$gcb_checkbutton.hint_tooltip = tooltip
 
 
 ''' EXPORT TOOL: SET CHECKBUTTON_TEXT '''
@@ -53,3 +55,50 @@ func _on_gcb_checkbutton_toggled(_button_pressed):
 ''' ON RESET BUTTON PRESSED '''
 func on_reset_button_pressed():
 	TL_CheckButton.reset($gcb_checkbutton, default_setting, invert_bool)
+
+
+func _on_gcb_checkbutton_mouse_entered():
+	var tween = $gcb_tween
+	var normal_style = $gcb_checkbutton.get_stylebox("normal")
+	var pressed_style = $gcb_checkbutton.get_stylebox("pressed")
+	var hover_pressed_style = $gcb_checkbutton.get_stylebox("hover_pressed")
+	var hover = $gcb_checkbutton.get_stylebox("hover")
+	print("STYLEBOX: " + str(normal_style))
+	tween.interpolate_property(normal_style, "bg_color",
+			Color(0.6, 0.6, 0.6, 0), Color(0.6, 0.6, 0.6, 0.039216), 0.33,
+			Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
+	tween.interpolate_property(hover, "bg_color",
+			Color(0.6, 0.6, 0.6, 0), Color(0.6, 0.6, 0.6, 0.039216), 0.33,
+			Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
+	tween.interpolate_property(pressed_style, "bg_color",
+			Color(0.6, 0.6, 0.6, 0), Color(0.6, 0.6, 0.6, 0.039216), 0.33,
+			Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
+	tween.interpolate_property(hover_pressed_style, "bg_color",
+			Color(0.6, 0.6, 0.6, 0), Color(0.6, 0.6, 0.6, 0.039216), 0.33,
+			Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
+	tween.start()
+
+
+func _on_gcb_checkbutton_mouse_exited():
+	var tween = $gcb_tween
+	var normal_style = $gcb_checkbutton.get_stylebox("normal")
+	var pressed_style = $gcb_checkbutton.get_stylebox("pressed")
+	var hover_pressed_style = $gcb_checkbutton.get_stylebox("hover_pressed")
+	var hover = $gcb_checkbutton.get_stylebox("hover")
+	tween.interpolate_property(normal_style, "bg_color",
+			Color(0.6, 0.6, 0.6, 0.039216), Color(0.6, 0.6, 0.6, 0), 0.33,
+			Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
+	tween.interpolate_property(hover, "bg_color",
+			Color(0.6, 0.6, 0.6, 0.039216), Color(0.6, 0.6, 0.6, 0), 0.33,
+			Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
+	tween.interpolate_property(pressed_style, "bg_color",
+			Color(0.6, 0.6, 0.6, 0.039216), Color(0.6, 0.6, 0.6, 0), 0.33,
+			Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
+	tween.interpolate_property(hover_pressed_style, "bg_color",
+			Color(0.6, 0.6, 0.6, 0.039216), Color(0.6, 0.6, 0.6, 0), 0.33,
+			Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
+	tween.start()
+
+
+func _on_gcb_tween_tween_completed(object, key):
+	pass # Replace with function body.

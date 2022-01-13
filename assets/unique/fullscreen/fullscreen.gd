@@ -1,12 +1,5 @@
 extends HBoxContainer
 
-
-''' ON PROGRAM START '''
-func _ready():
-	pass
-#	TL_Node.fullscreen_reset.connect('button_pressed', self, 'on_fs_reset_pressed')
-
-
 ''' ON PROGRAM START '''
 func load_value():
 	TL_Node.fullscreen_reset.connect('button_pressed', self, 'on_fs_reset_pressed')

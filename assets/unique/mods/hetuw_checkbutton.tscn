@@ -5,7 +5,7 @@
 [ext_resource path="res://assets/icons/checkbutton_on_disabled.png" type="Texture" id=3]
 [ext_resource path="res://assets/icons/checkbutton_on_enabled.png" type="Texture" id=4]
 [ext_resource path="res://theme/thol_launcher_theme_1.tres" type="Theme" id=5]
-[ext_resource path="res://theme/Checkbox/Checkbox_Hover_Pressed.tres" type="StyleBox" id=6]
+[ext_resource path="res://theme/checkbutton/checkbutton_normal_transp.tres" type="StyleBox" id=6]
 [ext_resource path="res://assets/_reusable/reset/Reset_Button.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/unique/mods/hetuw_checkbutton.gd" type="Script" id=8]
 

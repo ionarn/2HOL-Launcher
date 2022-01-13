@@ -44,10 +44,11 @@ func mousepointer_load_value():
 
 ''' SAVE MOUSE POINTER MODE SELECTION '''
 func mousepointer_save_value():
-	var file = File.new()  #new file class on which you will call file class methods
-	file.open(TL_Path.mouse_pointer, File.WRITE)  #the file is now opened in the background
-	file.store_string(str(TL_Node.mousepointer_dropdown.selected))
-	file.close()
+	if TL_Variables.startup_load_finished == true:
+		var file = File.new()  #new file class on which you will call file class methods
+		file.open(TL_Path.mouse_pointer, File.WRITE)  #the file is now opened in the background
+		file.store_string(str(TL_Node.mousepointer_dropdown.selected))
+		file.close()
 
 
 ''' RESET MOUSE POINTER MODE TO DEFAULT '''

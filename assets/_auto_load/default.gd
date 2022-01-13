@@ -7,11 +7,15 @@ var launcher_settings_path = "./settings/launcher_settings.ini"
 var config = ConfigFile.new()
 var load_response = config.load(launcher_settings_path)
 
+
+const vsplit_offset = 90
+
 # BASIC SETTINGS
 
 var seed_index
 var seed_name
 var spawn_seed
+var twin_code
 
 #-- Video
 var fullscreen
@@ -118,6 +122,7 @@ func load_variables():
 	seed_index = setget_defaults_values("seed_index", 0)
 	seed_name = setget_defaults_values("seed_name", "Default")
 	spawn_seed = setget_defaults_values("spawn_seed", "")
+	twin_code = setget_defaults_values("twinCode", "")
 	
 	#-- Video
 	fullscreen = setget_defaults_values("fullscreen", 0)

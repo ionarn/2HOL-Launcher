@@ -111,17 +111,19 @@ func res_reset_button_visibility():
 
 
 func res_x_write(amount):
-	var file = File.new() #new file class on which you will call file class methods
-	file.open(TL_Path.resolution_x, file.WRITE)  #the file is now opened in the background
-	file.store_string(amount)
-	file.close()
+	if TL_Variables.startup_load_finished == true:
+		var file = File.new() #new file class on which you will call file class methods
+		file.open(TL_Path.resolution_x, file.WRITE)  #the file is now opened in the background
+		file.store_string(amount)
+		file.close()
 
 
 func res_y_write(amount):
-	var file = File.new() #new file class on which you will call file class methods
-	file.open(TL_Path.resolution_y, file.WRITE)  #the file is now opened in the background
-	file.store_string(amount)
-	file.close()
+	if TL_Variables.startup_load_finished == true:
+		var file = File.new() #new file class on which you will call file class methods
+		file.open(TL_Path.resolution_y, file.WRITE)  #the file is now opened in the background
+		file.store_string(amount)
+		file.close()
 
 
 func res_apply_dropdown_to_lineedit():

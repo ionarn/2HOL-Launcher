@@ -1,0 +1,65 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/unique/setting_groups/spn_spawn_settings.gd" type="Script" id=1]
+[ext_resource path="res://assets/unique/seed_name/sed_seed_name.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/unique/seed_value/sed_seed_value.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/unique/twin_code/twc_twin_code.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/_reusable/h_separator/HSeparator.tscn" type="PackedScene" id=5]
+
+[node name="spn_spawn_settings" type="Control"]
+margin_top = 42.0
+margin_right = 565.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 0, 158 )
+rect_clip_content = true
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="spn_margin" type="MarginContainer" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -158.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_left = 14
+custom_constants/margin_bottom = 30
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="spn_vbox" type="VBoxContainer" parent="spn_margin"]
+margin_left = 14.0
+margin_right = 565.0
+margin_bottom = 128.0
+size_flags_horizontal = 3
+custom_constants/separation = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSeparator25" parent="spn_margin/spn_vbox" instance=ExtResource( 5 )]
+margin_top = 0.0
+margin_right = 551.0
+margin_bottom = 4.0
+
+[node name="sed_seed_name" parent="spn_margin/spn_vbox" instance=ExtResource( 2 )]
+
+[node name="HSeparator24" parent="spn_margin/spn_vbox" instance=ExtResource( 5 )]
+margin_top = 44.0
+margin_right = 551.0
+margin_bottom = 48.0
+
+[node name="sed_seed_value" parent="spn_margin/spn_vbox" instance=ExtResource( 3 )]
+
+[node name="HSeparator23" parent="spn_margin/spn_vbox" instance=ExtResource( 5 )]
+margin_top = 88.0
+margin_right = 551.0
+margin_bottom = 92.0
+
+[node name="twc_twin_code" parent="spn_margin/spn_vbox" instance=ExtResource( 4 )]
+margin_bottom = 124.0

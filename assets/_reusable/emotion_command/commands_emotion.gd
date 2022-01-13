@@ -146,18 +146,19 @@ func read_emotionWords():
 
 
 func write_to_emotionWords(emotion_array: Array, new_text: String):
-	var file = File.new()
-	var linecounter = 0
-	emotion_array[TL_Variables.emotion_list[assigned_emotion]["emo_ini_id"]] = new_text.to_lower()
-	var assembled_text = ""
-	for line in emotion_array:
-		linecounter += 1
-		assembled_text = assembled_text + line
-		if linecounter < emotion_array.size():
-			assembled_text = assembled_text + "\n"
-	file.open(TL_Path.emotion_words, File.WRITE)
-	file.store_string(assembled_text)
-	file.close()
+	if TL_Variables.startup_load_finished == true:
+		var file = File.new()
+		var linecounter = 0
+		emotion_array[TL_Variables.emotion_list[assigned_emotion]["emo_ini_id"]] = new_text.to_lower()
+		var assembled_text = ""
+		for line in emotion_array:
+			linecounter += 1
+			assembled_text = assembled_text + line
+			if linecounter < emotion_array.size():
+				assembled_text = assembled_text + "\n"
+		file.open(TL_Path.emotion_words, File.WRITE)
+		file.store_string(assembled_text)
+		file.close()
 
 
 func _on_ehp_lineedit_text_changed(new_text):

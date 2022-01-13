@@ -1,0 +1,133 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://assets/icons/menu_opened.png" type="Texture" id=1]
+[ext_resource path="res://theme/thol_launcher_theme_1.tres" type="Theme" id=2]
+[ext_resource path="res://assets/fonts/thol_launcher_lineedit_font.tres" type="DynamicFont" id=3]
+[ext_resource path="res://assets/_reusable/reset/Reset_Button.tscn" type="PackedScene" id=4]
+[ext_resource path="res://theme/dropdown_button/dropdown_button_focus.tres" type="StyleBox" id=5]
+[ext_resource path="res://theme/dropdown_button/dropdown_button_normal.tres" type="StyleBox" id=6]
+[ext_resource path="res://theme/dropdown_button/dropdown_button_pressed.tres" type="StyleBox" id=7]
+[ext_resource path="res://theme/dropdown_button/dropdown_button_hover.tres" type="StyleBox" id=8]
+[ext_resource path="res://theme/LineEdit/lineedit_readonly.tres" type="StyleBox" id=9]
+[ext_resource path="res://theme/LineEdit/lineedit_focus.tres" type="StyleBox" id=10]
+[ext_resource path="res://assets/unique/resolution/resolution.gd" type="Script" id=11]
+
+[node name="res_resolution" type="HBoxContainer"]
+margin_top = 48.0
+margin_right = 551.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 0, 26 )
+size_flags_horizontal = 3
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="res_label" type="Label" parent="." groups=["Fullscreen"]]
+margin_top = 2.0
+margin_right = 259.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
+theme = ExtResource( 2 )
+custom_colors/font_color = Color( 0.819608, 0.819608, 0.819608, 1 )
+text = "Resolution"
+valign = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_left = 263.0
+margin_right = 522.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+
+[node name="res_resolution_c" type="HBoxContainer" parent="HBoxContainer"]
+margin_right = 227.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+custom_constants/separation = 0
+
+[node name="res_horizontal" type="LineEdit" parent="HBoxContainer/res_resolution_c" groups=["Fullscreen", "Resolution"]]
+margin_right = 102.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+theme = ExtResource( 2 )
+custom_colors/font_color_uneditable = Color( 0.819608, 0.819608, 0.819608, 0.2 )
+custom_constants/minimum_spaces = 8
+custom_fonts/font = ExtResource( 3 )
+custom_styles/read_only = ExtResource( 9 )
+text = "1280"
+align = 2
+max_length = 4
+placeholder_text = "1280"
+caret_blink = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="res_multiply" type="Label" parent="HBoxContainer/res_resolution_c" groups=["Fullscreen"]]
+margin_left = 102.0
+margin_top = 2.0
+margin_right = 124.0
+margin_bottom = 30.0
+size_flags_horizontal = 4
+theme = ExtResource( 2 )
+custom_colors/font_color = Color( 0.819608, 0.819608, 0.819608, 1 )
+text = "x"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="res_vertical" type="LineEdit" parent="HBoxContainer/res_resolution_c" groups=["Fullscreen", "Resolution"]]
+margin_left = 124.0
+margin_right = 227.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 50, 0 )
+size_flags_horizontal = 3
+theme = ExtResource( 2 )
+custom_colors/font_color_uneditable = Color( 0.819608, 0.819608, 0.819608, 0.2 )
+custom_constants/minimum_spaces = 8
+custom_fonts/font = ExtResource( 3 )
+custom_styles/read_only = ExtResource( 9 )
+custom_styles/focus = ExtResource( 10 )
+text = "720"
+max_length = 4
+placeholder_text = "720"
+caret_blink = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="res_dropdown" type="OptionButton" parent="HBoxContainer" groups=["Fullscreen", "Resolution"]]
+margin_left = 231.0
+margin_right = 259.0
+margin_bottom = 32.0
+mouse_default_cursor_shape = 2
+theme = ExtResource( 2 )
+custom_constants/hseparation = 0
+custom_constants/arrow_margin = 8
+custom_icons/arrow = ExtResource( 1 )
+custom_styles/hover = ExtResource( 8 )
+custom_styles/pressed = ExtResource( 7 )
+custom_styles/focus = ExtResource( 5 )
+custom_styles/normal = ExtResource( 6 )
+toggle_mode = false
+text = "1280x720"
+clip_text = true
+items = [ "1920x1080", null, false, 0, null, "1600x900", null, false, 1, null, "1280x720", null, false, 2, null, "960x540", null, false, 3, null, "640x360", null, false, 4, null, "Custom", null, false, 5, null ]
+selected = 2
+
+[node name="res_reset" parent="." instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 526.0
+margin_top = 3.0
+margin_right = 551.0
+margin_bottom = 28.0
+
+[connection signal="text_changed" from="HBoxContainer/res_resolution_c/res_horizontal" to="." method="_on_res_horizontal_text_changed"]
+[connection signal="text_changed" from="HBoxContainer/res_resolution_c/res_vertical" to="." method="_on_res_vertical_text_changed"]
+[connection signal="item_selected" from="HBoxContainer/res_dropdown" to="." method="_on_res_dropdown_item_selected"]
+[connection signal="pressed" from="HBoxContainer/res_dropdown" to="." method="_on_res_dropdown_pressed"]

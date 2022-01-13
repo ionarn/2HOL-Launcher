@@ -23,9 +23,10 @@ func load_ini(ini_path, frame_rates):
 
 
 func write_to_ini(ini_path, fps):
-	var file = File.new()
-	file.open(ini_path, File.WRITE)
-	file.store_string(str(fps))
+	if TL_Variables.startup_load_finished == true:
+		var file = File.new()
+		file.open(ini_path, File.WRITE)
+		file.store_string(str(fps))
 
 
 func _on_tfp_dropdown_item_selected(index):

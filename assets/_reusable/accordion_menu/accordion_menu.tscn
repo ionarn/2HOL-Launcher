@@ -1,0 +1,89 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://assets/fonts/thol_launcher_groupbox_font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/icons/menu_closed.png" type="Texture" id=2]
+[ext_resource path="res://theme/thol_launcher_theme_1.tres" type="Theme" id=3]
+[ext_resource path="res://assets/_reusable/reset/Reset_Button.tscn" type="PackedScene" id=4]
+[ext_resource path="res://theme/ContentTree/ContentTree_Focus.tres" type="StyleBox" id=5]
+[ext_resource path="res://theme/ContentTree/ContentTree_Pressed.tres" type="StyleBox" id=6]
+[ext_resource path="res://theme/ContentTree/ContentTree_Hover.tres" type="StyleBox" id=7]
+[ext_resource path="res://theme/ContentTree/ContentTree_Normal.tres" type="StyleBox" id=8]
+[ext_resource path="res://assets/_reusable/accordion_menu/accordion_menu.gd" type="Script" id=9]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.129412, 0.141176, 0.160784, 0 )
+border_color = Color( 0.360784, 0.360784, 0.388235, 0.423529 )
+border_blend = true
+expand_margin_left = 8.0
+expand_margin_right = 8.0
+expand_margin_top = 31.0
+expand_margin_bottom = 8.0
+
+[node name="acm_accordion_menu" type="PanelContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_vertical = 0
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+text = "NAME"
+use_case = null
+
+[node name="acm_margin" type="MarginContainer" parent="."]
+margin_right = 780.0
+margin_bottom = 38.0
+size_flags_vertical = 0
+custom_constants/margin_left = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="acm_hbox" type="HBoxContainer" parent="acm_margin"]
+margin_left = 3.0
+margin_right = 780.0
+margin_bottom = 38.0
+size_flags_vertical = 3
+custom_constants/separation = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="acm_button" type="Button" parent="acm_margin/acm_hbox"]
+margin_right = 752.0
+margin_bottom = 38.0
+rect_min_size = Vector2( 0, 38 )
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 0.733333, 0.207843, 1 )
+custom_fonts/font = ExtResource( 1 )
+custom_styles/hover = ExtResource( 7 )
+custom_styles/pressed = ExtResource( 6 )
+custom_styles/focus = ExtResource( 5 )
+custom_styles/normal = ExtResource( 8 )
+text = "NAME"
+flat = true
+align = 0
+
+[node name="acm_sprite" type="Sprite" parent="acm_margin/acm_hbox/acm_button"]
+position = Vector2( 6, 19 )
+rotation = 1.5708
+texture = ExtResource( 2 )
+
+[node name="acm_reset" parent="acm_margin/acm_hbox" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 752.0
+margin_top = 6.0
+margin_right = 777.0
+margin_bottom = 31.0
+size_flags_horizontal = 8
+
+[node name="acm_tween" type="Tween" parent="."]
+
+[connection signal="pressed" from="acm_margin/acm_hbox/acm_button" to="." method="_on_btn_Video_pressed"]
+[connection signal="button_pressed" from="acm_margin/acm_hbox/acm_reset" to="." method="_on_name_reset_button_pressed"]
+[connection signal="tween_completed" from="acm_tween" to="." method="_on_acm_tween_tween_completed"]

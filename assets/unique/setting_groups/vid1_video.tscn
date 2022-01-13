@@ -1,0 +1,85 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://theme/thol_launcher_theme_1.tres" type="Theme" id=1]
+[ext_resource path="res://assets/unique/resolution/res_resolution.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/_reusable/checkbutton/general_checkbutton.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/_reusable/h_separator/HSeparator.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/unique/mouse_pointer/mp_mousepointer.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/unique/fullscreen/fs_fullscreen.tscn" type="PackedScene" id=7]
+
+[node name="vid1_video" type="Control"]
+margin_top = 254.0
+margin_right = 565.0
+margin_bottom = 484.0
+rect_min_size = Vector2( 0, 230 )
+rect_clip_content = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="vid1_margin" type="MarginContainer" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -230.0
+custom_constants/margin_left = 14
+custom_constants/margin_bottom = 30
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="vid1_vbox" type="VBoxContainer" parent="vid1_margin"]
+margin_left = 14.0
+margin_right = 565.0
+margin_bottom = 200.0
+size_flags_horizontal = 3
+custom_constants/separation = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSeparator23" parent="vid1_margin/vid1_vbox" instance=ExtResource( 5 )]
+margin_top = 0.0
+margin_right = 551.0
+margin_bottom = 4.0
+
+[node name="fs_fullscreen" parent="vid1_margin/vid1_vbox" instance=ExtResource( 7 )]
+
+[node name="HSeparator24" parent="vid1_margin/vid1_vbox" instance=ExtResource( 5 )]
+margin_top = 40.0
+margin_right = 551.0
+margin_bottom = 44.0
+
+[node name="res_resolution" parent="vid1_margin/vid1_vbox" instance=ExtResource( 3 )]
+
+[node name="HSeparator25" parent="vid1_margin/vid1_vbox" instance=ExtResource( 5 )]
+margin_top = 84.0
+margin_right = 551.0
+margin_bottom = 88.0
+
+[node name="bl_borderless" parent="vid1_margin/vid1_vbox" instance=ExtResource( 4 )]
+margin_top = 92.0
+margin_right = 551.0
+margin_bottom = 120.0
+CheckButton_Text = "Borderless"
+variable_name_code = "borderless"
+
+[node name="HSeparator26" parent="vid1_margin/vid1_vbox" instance=ExtResource( 5 )]
+margin_top = 124.0
+margin_right = 551.0
+margin_bottom = 128.0
+
+[node name="mp_mousepointer" parent="vid1_margin/vid1_vbox" instance=ExtResource( 6 )]
+
+[node name="HSeparator27" parent="vid1_margin/vid1_vbox" instance=ExtResource( 5 )]
+margin_top = 164.0
+margin_right = 551.0
+margin_bottom = 168.0
+
+[node name="vs_vsync" parent="vid1_margin/vid1_vbox" instance=ExtResource( 4 )]
+margin_top = 172.0
+margin_right = 551.0
+margin_bottom = 200.0
+theme = ExtResource( 1 )
+CheckButton_Text = "V-Sync"
+variable_name_code = "vsync"

@@ -33,6 +33,7 @@ func load_values():
 	TL_Node.nw_popup.connect("item_selected", self, "_on_server_dropdown_item_selected")
 	TL_Node.nw_popup.connect("pressed_add", self, "_on_server_dropdown_add_item_pressed")
 	TL_Node.nw_popup.connect("pressed_remove", self, "_on_server_dropdown_remove_item_pressed")
+	TL_Node.nw_popup.connect("becomes_hidden", self, "_on_nw_popup_becomes_hidden")
 	TL_Node.server_reset.connect('button_pressed', self, 'on_server_reset_pressed')
 	
 	var file = File.new()
@@ -263,6 +264,7 @@ func _on_svr2_dropdown_pressed():
 
 
 func _on_svr_button_pressed():
+	TL_Node.server_dropdown.mouse_filter = 2
 	if TL_Node.server_name.get_global_position().y < 300:
 		TL_Node.nw_popup.set_position(Vector2(TL_Node.server_name.get_global_position().x, 
 				TL_Node.server_name.get_global_position().y + TL_Node.server_name.rect_size.y + 4))
@@ -272,3 +274,11 @@ func _on_svr_button_pressed():
 	TL_Node.nw_popup.rect_size.x = (TL_Node.server_name.rect_size.x + TL_Node.server_dropdown.rect_size.x + 4)
 	TL_Node.nw_popup.rect_size.y = 0
 	TL_Node.nw_popup.popup()
+
+
+func _on_nw_popup_becomes_hidden():
+	TL_Node.server_timer.start()
+
+
+func _on_svr_timer_timeout():
+	TL_Node.server_dropdown.mouse_filter = 0

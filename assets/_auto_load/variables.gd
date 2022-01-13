@@ -2,7 +2,19 @@ extends Node
 
 # G L O B A L   C O N S T A N T   V A R I A B L E S
 
-const hsplit_max_offset = 180
+var startup_load_finished = false
+
+const hsplit_max_offset = 175
+const vsplit_max_offset = 200
+
+const website_thol = "https://twohoursonelife.com"
+const website_github = "https://github.com/twohoursonelife"
+const website_discord = "https://twohoursonelife.com"
+const website_twotech = "https://twotech.twohoursonelife.com"
+const website_fandom = "https://twohoursonelife.fandom.com/wiki/"
+const website_patreon = "https://www.patreon.com/twohoursonelife"
+const website_open_collective = "https://opencollective.com/twohoursonelife"
+const website_translator = "http://tholr.online/language"
 
 const SECTION_DEFAULTS = "defaults"
 

@@ -10,10 +10,11 @@ func load_ini(spinbox_node, file_path):
 
 ''' SAVE SPINBOX VALUE TO INI '''
 func save_ini(spinbox_node, file_path):
-	var file = File.new() # new file class on which you will call file class methods
-	file.open(file_path, File.WRITE) # the file is now opened in the background
-	file.store_string(str(spinbox_node.value))
-	file.close()
+	if TL_Variables.startup_load_finished == true:
+		var file = File.new() # new file class on which you will call file class methods
+		file.open(file_path, File.WRITE) # the file is now opened in the background
+		file.store_string(str(spinbox_node.value))
+		file.close()
 
 
 ''' CHECK FOR SPINBOX RESET BUTTON VISIBILITY '''
