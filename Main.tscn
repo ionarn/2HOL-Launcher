@@ -226,6 +226,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
 [node name="reusable_code" type="Control" parent="."]
 visible = false
 margin_right = 40.0
@@ -3702,6 +3706,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="gui_input" from="mvb_main_vbox/tb_title_bar" to="mvb_main_vbox/tb_title_bar" method="_on_HBox_TitleBar_gui_input"]
 [connection signal="pressed" from="mvb_main_vbox/tb_title_bar/tb_minimize" to="mvb_main_vbox/tb_title_bar" method="_on_WC_Minimize_pressed"]
 [connection signal="pressed" from="mvb_main_vbox/tb_title_bar/tb_maximize" to="mvb_main_vbox/tb_title_bar" method="_on_Btn_Maximixe_pressed"]

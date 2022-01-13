@@ -1,18 +1,5 @@
 extends HBoxContainer
 
-
-func finding_nodes(node_name):
-	return get_tree().get_root().find_node(node_name, true, false)
-
-
-''' VARIABLES '''
-#onready var default_setting = 0
-#onready var file_path = "./settings/cursorMode.ini" #have the file path
-#onready var dropdown = finding_nodes('mp_dropdown')
-#onready var reset_button = finding_nodes('mp_reset')
-
-#	-------------------------------------------------------
-
 func load_value():
 	TL_Node.mousepointer_reset.connect('button_pressed', self, 'on_mousepointer_reset_pressed') # When 
 	

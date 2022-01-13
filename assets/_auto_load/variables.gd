@@ -7,6 +7,8 @@ var startup_load_finished = false
 const hsplit_max_offset = 175
 const vsplit_max_offset = 200
 
+onready var launcher_settings_file = load("res://assets/launcher_settings.tres")
+
 const website_thol = "https://twohoursonelife.com"
 const website_github = "https://github.com/twohoursonelife"
 const website_discord = "https://twohoursonelife.com"

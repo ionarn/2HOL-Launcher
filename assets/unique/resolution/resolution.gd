@@ -13,10 +13,6 @@ var option_3y = "540"
 var option_4x = "640"
 var option_4y = "360"
 
-var launcher_settings_path = "./settings/launcher_settings.ini"
-var config = ConfigFile.new()
-var load_response = config.load(launcher_settings_path)
-
 ################################################################
 
 # Loads the Resolutions values to the Lineedit and custom Dropdown menu.

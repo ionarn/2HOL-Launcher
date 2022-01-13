@@ -10,14 +10,14 @@ var getting_closed = false
 var section = 'seeds'
 var key = 'seeds'
 
-var launcher_settings_path = "./settings/launcher_settings.ini"
-var config = ConfigFile.new()
-var load_response = config.load(launcher_settings_path)
 var i = 0
 
 # - - - - - - - - - - - - - - - - - - - - - - - -
 
 func load_values():
+	var config = ConfigFile.new()
+	var load_response = config.load(TL_Path.launcher_settings)
+	
 	TL_Node.seed_popup.connect("item_selected", self, "_on_seed_dropdown_item_selected")
 	TL_Node.seed_popup.connect("pressed_add", self, "_on_seed_dropdown_add_item_pressed")
 	TL_Node.seed_popup.connect("pressed_remove", self, "_on_seed_dropdown_remove_item_pressed")
@@ -30,13 +30,13 @@ func load_values():
 		add_seeds_to_dropdown()
 		load_seed_data(TL_Node.seed_popup.get_selected())
 		TL_Node.seed_popup.default_check(TL_Node.seed_popup.get_selected(), [TL_Node.seed_name, TL_Node.seed_value], TL_Node.seed_reset)
-	else:
-		config.set_value("seeds", "seeds", [{
-			"note": "Default",
-			"seed": ""
-			} ])
-		config.set_value("seeds", "seed_index", 0)
-		config.save(TL_Path.launcher_settings)
+#	else:
+#		config.set_value("seeds", "seeds", [{
+#			"note": "Default",
+#			"seed": ""
+#			} ])
+#		config.set_value("seeds", "seed_index", 0)
+#		config.save(TL_Path.launcher_settings)
 
 
 # Called when the node enters the scene tree for the first time.
@@ -90,6 +90,9 @@ func _on_sed_timer_timeout():
 
 
 func _on_seed_dropdown_item_selected(index):
+	var config = ConfigFile.new()
+	var load_response = config.load(TL_Path.launcher_settings)
+	
 	TL_Node.seed_popup_button.mouse_filter = 0
 	var seeds_list = config.get_value(section, key)
 	if config.has_section(section) == true:
@@ -115,14 +118,20 @@ func _on_seed_dropdown_item_selected(index):
 
 
 func _on_seed_dropdown_add_item_pressed():
+	var config = ConfigFile.new()
+	var load_response = config.load(TL_Path.launcher_settings)
+	
 	if config.has_section(section) == true:
 		var my_var = config.get_value(section, key)
 		my_var.append({'seed': '', 'note': ''})
 		config.set_value(section, key, my_var)
-		config.save(launcher_settings_path)
+		config.save(TL_Path.launcher_settings)
 
 
 func _on_seed_dropdown_remove_item_pressed(index):
+	var config = ConfigFile.new()
+	var load_response = config.load(TL_Path.launcher_settings)
+	
 	var seeds_list = config.get_value(section, key)
 	if seeds_list.size() > 1:
 		seeds_list.remove(index)
@@ -142,6 +151,9 @@ func assign_indeces():
 
 
 func _on_sed_sv_lineedit_text_changed(new_text):
+	var config = ConfigFile.new()
+	var load_response = config.load(TL_Path.launcher_settings)
+	
 	var seed_value = config.get_value(section, key)
 	seed_value[TL_Node.seed_popup.get_selected()]['seed'] = new_text
 	config.set_value(section, key, seed_value)
@@ -161,6 +173,9 @@ func _on_sed_sv_lineedit_text_changed(new_text):
 
 func save_ini():
 	if TL_Variables.startup_load_finished == true:
+		var config = ConfigFile.new()
+		var load_response = config.load(TL_Path.launcher_settings)
+		
 		var all_seeds = config.get_value("seeds", "seeds")
 		var selected_seed = int(config.get_value("seeds", "seed_index"))
 #		print(str(selected_seed))
@@ -187,6 +202,9 @@ func save_ini():
 
 
 func _on_sps_note_text_changed(new_text):
+	var config = ConfigFile.new()
+	var load_response = config.load(TL_Path.launcher_settings)
+	
 	TL_Node.seed_popup.set_item_text(TL_Node.seed_popup.get_selected(), new_text)
 	var seed_value = config.get_value(section, key)
 	seed_value[TL_Node.seed_popup.get_selected()]['note'] = new_text
@@ -197,6 +215,9 @@ func _on_sps_note_text_changed(new_text):
 
 
 func add_seeds_to_dropdown():
+	var config = ConfigFile.new()
+	var load_response = config.load(TL_Path.launcher_settings)
+	
 	var seed_list = config.get_value("seeds", "seeds")
 	for item in seed_list:
 		TL_Node.seed_popup.add_item(item["note"])
@@ -205,6 +226,9 @@ func add_seeds_to_dropdown():
 
 
 func load_seed_data(index):
+	var config = ConfigFile.new()
+	var load_response = config.load(TL_Path.launcher_settings)
+	
 	var selected_seed_data = config.get_value(section, key, null)
 	TL_Node.seed_name.text = selected_seed_data[index]["note"]
 	TL_Node.seed_value.text = selected_seed_data[index]["seed"]

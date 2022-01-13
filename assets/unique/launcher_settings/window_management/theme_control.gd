@@ -9,11 +9,6 @@ var clear_button_color = Color(0.921569, 0.921569, 0.921569)
 var font_color_uneditable = Color(0.258824, 0.258824, 0.258824)
 var dynamic_font = DynamicFont.new()
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
 func color_lineedit(node):
 	node.set('custom_colors/selection_color', selection_color)
 	node.set('custom_colors/cursor_color', cursor_color)

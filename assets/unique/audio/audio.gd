@@ -1,69 +1,27 @@
 extends Control
 
-''' VARIABLES '''
-func finding_nodes(node_name):
-	return get_tree().get_root().find_node(node_name, true, false)
-
-#onready var nodes = finding_nodes('nodes')
-#onready var path = finding_nodes('path')
-
-#onready var audio_checkbutton = finding_nodes('av1_checkbutton')
-#onready var audio_slider = finding_nodes('av2_slider')
-#onready var audio_label = finding_nodes('av2_label')
-#onready var audio_reset = finding_nodes('av2_reset')
-#var audio_off_path = "./settings/audioOff.ini"
-#var audio_off_default = false
-#var audio_slider_default = 100
-
-#onready var music_checkbutton = finding_nodes('mv1_checkbutton')
-#onready var music_slider = finding_nodes('mv2_slider')
-#onready var music_label = finding_nodes('mv2_label')
-#onready var music_reset = finding_nodes('mv2_reset')
-#var music_volume_path = "./settings/musicLoudness.ini"
-#var music_off_path = "./settings/musicOff.ini"
-#var music_off_default = false
-#var music_slider_default = 100
-
-#onready var sound_checkbutton = finding_nodes('sfx1_checkbutton')
-#onready var sound_slider = finding_nodes('sfx2_slider')
-#onready var sound_label = finding_nodes('sfx2_label')
-#onready var sound_reset = finding_nodes('sfx2_reset')
-#var sound_volume_path = "./settings/soundEffectsLoudness.ini"
-#var sound_off_path = "./settings/soundEffectsOff.ini"
-#var sound_off_default = false
-#var sound_slider_default = 100
 var section = "audio"
-
-#var launcher_settings_path = "./settings/launcher_settings.ini"
-#var launcher_ini_content = '[section]\n\naudio_volume=100\naudio_off=0\nmusic_volume=100\nmusic_off=0\nsound_volume=100\nsound_off=0'
-var config = ConfigFile.new()
-var load_response = config.load(TL_Path.launcher_settings)
-
-# - - - - - - - - - - - - - - - - - - - - - - -
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
-#	TL_Node.audio_reset.connect('button_pressed', self, '_on_audio_reset_pressed')
-#	TL_Node.music_reset.connect('button_pressed', self, '_on_music_reset_pressed')
-#	TL_Node.sound_reset.connect('button_pressed', self, '_on_sound_reset_pressed')
 
 
 func load_values():
+#	var config_b = ConfigFile.new()
+#	var load_response_b = config_b.load(TL_Path.launcher_settings)
 	TL_Node.audio_reset.connect('button_pressed', self, '_on_audio_reset_pressed')
 	TL_Node.music_reset.connect('button_pressed', self, '_on_music_reset_pressed')
 	TL_Node.sound_reset.connect('button_pressed', self, '_on_sound_reset_pressed')
 	
 	var file = File.new()
-	if (file.file_exists(TL_Path.launcher_settings) == false
-			and config.has_section('audio') == false):
-		config.set_value("audio", "audio_volume", 100)
-		config.set_value("audio", "audio_off", 0)
-		config.set_value("audio", "music_volume", 100)
-		config.set_value("audio", "music_off", 0)
-		config.set_value("audio", "sound_volume", 100)
-		config.set_value("audio", "sound_off", 0)
-		config.save(TL_Path.launcher_settings)
+#	if (file.file_exists(TL_Path.launcher_settings) == false
+#			and config.has_section('audio') == false):
+#		config.set_value("audio", "audio_volume", 100)
+#		config.set_value("audio", "audio_off", 0)
+#		config.set_value("audio", "music_volume", 100)
+#		config.set_value("audio", "music_off", 0)
+#		config.set_value("audio", "sound_volume", 100)
+#		config.set_value("audio", "sound_off", 0)
+#		config.save(TL_Path.launcher_settings)
+	
+#	print("Sound Volume: " + str(config_b.get_value("audio", "sound_volume")))
 	
 	if file.file_exists(TL_Path.audio_off) == false:
 		file.open(TL_Path.audio_off, file.WRITE)
@@ -228,57 +186,69 @@ func save_checkbutton_value(path, state):
 
 
 func save_slider_value(path, checkbutton, slider_value):
-	var file = File.new() #new file class on which you will call file class methods
-	file.open(path, File.WRITE)  #the file is now opened in the background
-	if TL_Node.audio_checkbutton.pressed == true or checkbutton.pressed == true:
-		file.store_string(str((slider_value  * TL_Node.audio_slider.value) / 10000))
-	elif TL_Node.audio_checkbutton.pressed == false:
-		file.store_string(str(0))
-	file.close()
-
-
-func save_audio(value):
-	var array = [ [TL_Path.music_volume, TL_Node.music_slider], [TL_Path.sound_volume, TL_Node.sound_slider] ]
-	for content in array:
+	if TL_Variables.startup_load_finished == true:
 		var file = File.new() #new file class on which you will call file class methods
-		file.open(content[0], File.WRITE)  #the file is now opened in the background
-		file.store_string(str((content[1].value * value) / 10000))
+		file.open(path, File.WRITE)  #the file is now opened in the background
+		if TL_Node.audio_checkbutton.pressed == true or checkbutton.pressed == true:
+			file.store_string(str((slider_value  * TL_Node.audio_slider.value) / 10000))
+		elif TL_Node.audio_checkbutton.pressed == false:
+			file.store_string(str(0))
 		file.close()
 
 
+func save_audio(value):
+	if TL_Variables.startup_load_finished == true:
+		var array = [ [TL_Path.music_volume, TL_Node.music_slider], [TL_Path.sound_volume, TL_Node.sound_slider] ]
+		for content in array:
+			var file = File.new() #new file class on which you will call file class methods
+			file.open(content[0], File.WRITE)  #the file is now opened in the background
+			file.store_string(str((content[1].value * value) / 10000))
+			file.close()
+
+
 func save_chache(key, value):
-	config.set_value(section, key, int(value))
-	config.save(TL_Path.launcher_settings)
+	if TL_Variables.startup_load_finished == true:
+		var config = ConfigFile.new()
+		var load_response = config.load(TL_Path.launcher_settings)
+		config.set_value(section, key, int(value))
+		config.save(TL_Path.launcher_settings)
 
 
 func load_slider_cache(key, slider):
-	slider.value = int(config.get_value(section, key, null))
+	var config = ConfigFile.new()
+	var load_response = config.load(TL_Path.launcher_settings)
+	slider.value = int(config.get_value(section, key))
 
 
 func load_checkbutton_cache(key, checkbutton):
+	var config = ConfigFile.new()
+	var load_response = config.load(TL_Path.launcher_settings)
 	var boing = bool(int(config.get_value(section, key, checkbutton.pressed)))
 	checkbutton.pressed = !boing
 
 
 func does_launcher_ini_exist():
-	var file_check = File.new()
-	if file_check.file_exists(TL_Path.launcher_settings) == false:
-		var file = File.new()
-		file.open(TL_Path.launcher_settings, File.WRITE)
-		file.store_string('')
-		file.close()
-	if config.has_section(section) == false:
-		config.set_value(section, 'audio_volume', 100)
-		config.set_value(section, 'audio_off', 0)
-		config.set_value(section, 'music_volume', 100)
-		config.set_value(section, 'music_off', 0)
-		config.set_value(section, 'sound_volume', 100)
-		config.set_value(section, 'sound_off', 0)
-		config.save(TL_Path.launcher_settings)
+	pass
+#	var file_check = File.new()
+#	if file_check.file_exists(TL_Path.launcher_settings) == false:
+#		var file = File.new()
+#		file.open(TL_Path.launcher_settings, File.WRITE)
+#		file.store_string('')
+#		file.close()
+#	if config.has_section(section) == false:
+#		config.set_value(section, 'audio_volume', 100)
+#		config.set_value(section, 'audio_off', 0)
+#		config.set_value(section, 'music_volume', 100)
+#		config.set_value(section, 'music_off', 0)
+#		config.set_value(section, 'sound_volume', 100)
+#		config.set_value(section, 'sound_off', 0)
+#		config.save(TL_Path.launcher_settings)
 	
 
 
 func audio_toggle():
+	var config = ConfigFile.new()
+	var load_response = config.load(TL_Path.launcher_settings)
 	if TL_Node.audio_checkbutton.pressed == false:
 		TL_Node.audio_slider.mouse_filter = 2
 		TL_Node.audio_slider.editable = false

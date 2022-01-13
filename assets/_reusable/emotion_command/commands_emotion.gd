@@ -35,9 +35,6 @@ export(String,
 var assigned_emotion = 0
 var emo_signature = ""
 
-var config = ConfigFile.new()
-var load_response = config.load(TL_Path.launcher_settings)
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass

@@ -291,7 +291,7 @@ func load_variables():
 	bnr_button = finding_nodes("bnr_button")
 	bnr_label = finding_nodes("bnr_label")
 	bnr_panel = finding_nodes("bnr_panel")
-#	website_links = finding_nodes("lks_links")
+	website_links = finding_nodes("lks_links")
 	
 	nvp_advanced_split = finding_nodes("nvp_advanced_split")
 	nvp_information_split = finding_nodes("nvp_information_split")

@@ -1,10 +1,5 @@
 extends HBoxContainer
 
-
-#func finding_nodes(node_name):
-#	return get_tree().get_root().find_node(node_name, true, false)
-
-
 ''' VARIABLES '''
 var following = false
 var dragging_start_pos = Vector2()

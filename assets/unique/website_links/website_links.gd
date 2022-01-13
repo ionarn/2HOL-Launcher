@@ -4,12 +4,12 @@ onready var tween = $lks_tween
 const blend_speed = 0.35
 const alpha_value = 0.5
 
-func _ready():
-	TL_Signal.connect("register_node", self, "register_nodes")
+#func _ready():
+#	TL_Signal.connect("register_node", self, "register_nodes")
 
 
-func register_nodes():
-	TL_Node.website_links = self
+#func register_nodes():
+#	TL_Node.website_links = self
 
 
 func set_hint_tooltip():

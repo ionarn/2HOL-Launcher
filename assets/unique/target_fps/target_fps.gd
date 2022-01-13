@@ -2,12 +2,6 @@ extends HBoxContainer
 
 var frame_rates = [30, 60, 100, 120, 144]
 
-
-# Called when the node enters the scene tree for the first time.
-#func _ready():
-#	$tfp_reset.connect("button_pressed", self, "_on_reset_button_pressed")
-
-
 func load_value():
 	$tfp_reset.connect("button_pressed", self, "_on_reset_button_pressed")
 	

@@ -1,7 +1,7 @@
 extends Control
 
-var config = ConfigFile.new()
-var load_response = config.load(TL_Path.launcher_settings)
+#var config = ConfigFile.new()
+#var load_response = config.load(TL_Path.launcher_settings)
 
 # Called when the node enters the scene tree for the first time.
 func load_values():
@@ -45,11 +45,13 @@ func read_hetuw_cfg():
 
 
 func load_selected_mod():
-	if config.has_section("hetuw") == false:
-		config.set_value("hetuw", "mod_selected", 0)
-		config.save(TL_Path.launcher_settings)
-	else:
-		TL_Node.mod_selection_dropdown.selected = config.get_value("hetuw", "mod_selected")
+	var config = ConfigFile.new()
+	var load_response = config.load(TL_Path.launcher_settings)
+#	if config.has_section("hetuw") == false:
+#		config.set_value("hetuw", "mod_selected", 0)
+#		config.save(TL_Path.launcher_settings)
+#	else:
+	TL_Node.mod_selection_dropdown.selected = int(config.get_value("launcher", "mod_selected"))
 
 
 func mod_settings_visibility(selected_mod_index):
@@ -66,6 +68,9 @@ func mod_settings_visibility(selected_mod_index):
 
 
 func _on_mse_dropdown_item_selected(index):
+	var config = ConfigFile.new()
+	var load_response = config.load(TL_Path.launcher_settings)
+	
 	mod_settings_visibility(index)
-	config.set_value("hetuw", "mod_selected", index)
+	config.set_value("launcher", "mod_selected", index)
 	config.save(TL_Path.launcher_settings)

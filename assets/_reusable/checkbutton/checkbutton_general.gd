@@ -8,8 +8,6 @@ signal on_value_changed
 var default_setting
 var ini_path
 
-
-
 export(String) var CheckButton_Text = "VSync" setget checkbutton_text_set, checkbutton_text_get
 export(String) var variable_name_code
 export(bool) var invert_bool = false

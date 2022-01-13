@@ -4,9 +4,6 @@ extends Control
 #var server_default = 0
 var server_name_new = 'Custom Server'
 
-var config = ConfigFile.new()
-var load_response = config.load(TL_Path.launcher_settings)
-
 var new_server_name = "New Server"
 var new_address = ""
 var new_port = ""
@@ -21,8 +18,8 @@ var server_index = "server_index"
 #	-------------------------------------------------------
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
+#func _ready():
+#	pass
 #	TL_Node.nw_popup.connect("item_selected", self, "_on_server_dropdown_item_selected")
 #	TL_Node.nw_popup.connect("pressed_add", self, "_on_server_dropdown_add_item_pressed")
 #	TL_Node.nw_popup.connect("pressed_remove", self, "_on_server_dropdown_remove_item_pressed")
@@ -36,30 +33,40 @@ func load_values():
 	TL_Node.nw_popup.connect("becomes_hidden", self, "_on_nw_popup_becomes_hidden")
 	TL_Node.server_reset.connect('button_pressed', self, 'on_server_reset_pressed')
 	
-	var file = File.new()
-	if file.file_exists(TL_Path.launcher_settings) == true and config.has_section("network") == true:
-		add_servers_to_dropdown()
-		load_server_credentials(TL_Node.nw_popup.get_selected())
-		var le_list = [TL_Node.server_name, TL_Node.address, TL_Node.port]
-		TL_Node.nw_popup.default_check(TL_Node.nw_popup.selected, le_list, TL_Node.server_reset)
-	else:
-		config.set_value("network", 'server', [{
-			'server_name': TL_Default.server_name,
-			'address': TL_Default.address,
-			'port': TL_Default.port
-		}])
-		config.set_value("network", 'server_index', 0)
-		config.save(TL_Path.launcher_settings)
+#	var file = File.new()
+#	if file.file_exists(TL_Path.launcher_settings) == false or config.has_section("network") == false:
+#		config.set_value("defaults", "server", [{
+#			'server_name': "Two Hours One Life",
+#			'address': "play.twohoursonelife.com",
+#			'port': 8005
+#		}])
+#		config.set_value("defaults", "server_index", 0)
+#		config.set_value("network", 'server', [{
+#			'server_name': "Two Hours One Life",
+#			'address': "play.twohoursonelife.com",
+#			'port': 8005
+#		}])
+#		config.set_value("network", 'server_index', 0)
+#		config.set_value(TL_Variables.section_network, TL_Variables.key_server, TL_Default.server_address)
+#		config.set_value(TL_Variables.section_network, TL_Variables.key_server_name, TL_Default.server_name)
+#		config.set_value(TL_Variables.section_network, TL_Variables.key_server_port, TL_Default.server_port)
+#		config.save(TL_Path.launcher_settings)
+	add_servers_to_dropdown()
+	load_server_credentials(TL_Node.nw_popup.get_selected())
+	var le_list = [TL_Node.server_name, TL_Node.address, TL_Node.port]
+	TL_Node.nw_popup.default_check(TL_Node.nw_popup.selected, le_list, TL_Node.server_reset)
 
 
 func _on_server_dropdown_item_selected(index):
+	var config = ConfigFile.new()
+	var load_response = config.load(TL_Path.launcher_settings)
 	var server_list = config.get_value(section_nw, server)
 	if config.has_section(section_nw) == true:
 		config.set_value(section_nw, server_index, index)
 		config.save(TL_Path.launcher_settings)
 		TL_Node.server_name.text = server_list[index][key_server_name]
 		TL_Node.address.text = server_list[index][key_address]
-		TL_Node.port.text = server_list[index][key_port]
+		TL_Node.port.text = str(server_list[index][key_port])
 		var le_server_list = [TL_Node.server_name, TL_Node.address, TL_Node.port]
 		TL_Node.nw_popup.default_check(index, le_server_list, TL_Node.server_reset)
 	else:
@@ -71,6 +78,8 @@ func _on_server_dropdown_item_selected(index):
 
 
 func _on_server_dropdown_add_item_pressed():
+	var config = ConfigFile.new()
+	var load_response = config.load(TL_Path.launcher_settings)
 	if config.has_section(section_nw) == true:
 		var server_list = config.get_value(section_nw, server)
 		server_list.append({key_address: new_address, key_port: new_port, key_server_name: new_server_name})
@@ -82,6 +91,8 @@ func _on_server_dropdown_add_item_pressed():
 
 
 func _on_server_dropdown_remove_item_pressed(index):
+	var config = ConfigFile.new()
+	var load_response = config.load(TL_Path.launcher_settings)
 	var server_list = config.get_value(section_nw, server)
 	if server_list.size() > 1:
 		server_list.remove(index)
@@ -114,6 +125,9 @@ func _on_adr2_port_text_changed(new_text):
 
 
 func _on_adr2_add_item_pressed():
+	var config = ConfigFile.new()
+	var load_response = config.load(TL_Path.launcher_settings)
+	
 	TL_Node.server_dropdown.add_item(server_name_new)
 	
 	var server_list = config.get_value(section_nw, server, null)
@@ -136,6 +150,9 @@ func _on_adr2_add_item_pressed():
 
 
 func _on_adr2_remove_item_pressed():
+	var config = ConfigFile.new()
+	var load_response = config.load(TL_Path.launcher_settings)
+	
 	var server_list = config.get_value(section_nw, server, null)
 	server_list.remove(TL_Node.server_dropdown.selected)
 	config.set_value(section_nw, server, server_list)
@@ -152,6 +169,9 @@ func _on_adr2_remove_item_pressed():
 #	-------------------------------------------------------
 
 func add_servers_to_dropdown():
+	var config = ConfigFile.new()
+	var load_response = config.load(TL_Path.launcher_settings)
+	
 	var server_list = config.get_value("network", "server")
 	for item in server_list:
 		TL_Node.nw_popup.add_item(item["server_name"])
@@ -173,21 +193,30 @@ func add_servers_to_dropdown():
 
 
 func save_server_index():
+	var config = ConfigFile.new()
+	var load_response = config.load(TL_Path.launcher_settings)
+	
 	config.set_value(section_nw, server_index, TL_Node.server_dropdown.selected)
 	config.save(TL_Path.launcher_settings)
 
 
 func load_server_credentials(index):
+	var config = ConfigFile.new()
+	var load_response = config.load(TL_Path.launcher_settings)
+	
 	var server_selected_data = config.get_value(section_nw, server, null)
 	TL_Node.server_name.text = server_selected_data[index][key_server_name]
 	TL_Node.address.text = server_selected_data[index][key_address]
-	TL_Node.port.text = server_selected_data[index][key_port]
+	TL_Node.port.text = str(server_selected_data[index][key_port])
 	
 	var server_index = config.get_value("network", "server_index")
 	TL_Node.nw_popup.select(int(server_index))
 
 
 func write_to_ini(new_text, key):
+	var config = ConfigFile.new()
+	var load_response = config.load(TL_Path.launcher_settings)
+	
 	var server_list = config.get_value(section_nw, server, null)
 	server_list[TL_Node.nw_popup.get_selected()][key] = new_text
 	config.set_value(section_nw, server, server_list)
@@ -219,6 +248,9 @@ func on_server_reset_pressed():
 
 
 func check_for_ini_cache_match():
+	var config = ConfigFile.new()
+	var load_response = config.load(TL_Path.launcher_settings)
+	
 	var file = File.new() #new file class on which you will call file class methods
 	file.open(TL_Path.address, File.READ)  #the file is now opened in the background
 	var address_value = file.get_as_text()

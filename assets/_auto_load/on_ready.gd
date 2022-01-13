@@ -3,17 +3,14 @@ extends Control
 var i = 0
 var j = 0
 
-var config = ConfigFile.new()
-var load_response = config.load(TL_Path.launcher_settings)
-
-
 # F U N C T I O N S
 
 # Called when the node enters the scene tree for the first time.
 func on_loading_ready():
-	TL_Signal.connect("ready_load_checkbutton", self, "_ready_load_checkbutton")
-	TL_Signal.connect("ready_load_spinbox", self, "_ready_load_spinbox")
-	TL_Signal.emit_signal("register_node")
+	TL_Default.load_variables()
+#	TL_Signal.connect("ready_load_checkbutton", self, "_ready_load_checkbutton")
+#	TL_Signal.connect("ready_load_spinbox", self, "_ready_load_spinbox")
+#	TL_Signal.emit_signal("register_node")
 	
 	TL_Node.window_resize_control.visible = true
 	TL_Node.pop_popups.visible = true
@@ -35,7 +32,7 @@ func on_loading_ready():
 	elif OS.get_name() == "X11":
 		game_file_path = TL_Path.game_file_linux
 	
-	if file.file_exists(game_file_path) == false: # TRUE
+	if file.file_exists(game_file_path) == true: # TRUE
 		# LOGIN
 		TL_Node.ld_login_data.load_values()
 		
@@ -43,7 +40,6 @@ func on_loading_ready():
 		TL_Node.fullscreen.load_value()
 		TL_Node.resolution.load_value()
 		TL_Node.borderless.load_value()
-		print("BORDERLESS NODE: " + str(TL_Node.borderless_checkbutton))
 		TL_Node.mousepointer.load_value()
 		TL_Node.vsync.load_value()
 		
@@ -84,14 +80,14 @@ func on_loading_ready():
 			
 			TL_Node.seed_script.load_values()
 			TL_Node.twin_code.load_value()
-			
+
 			TL_Node.audio.load_values()
 			TL_Node.network_script.load_values()
 			TL_Node.font_size.load_value()
 
 			# GAME SETTINGS
 			TL_Node.general_settings_script.load_values()
-			
+
 			TL_Node.auto_login.load_value()
 			TL_Node.hard_to_quit.load_value()
 			TL_Node.check_spelling.load_value()
@@ -107,7 +103,7 @@ func on_loading_ready():
 			TL_Node.record_audio_length.load_value()
 			TL_Node.sound_sample_rate.load_value()
 			TL_Node.sound_buffer_size.load_value()
-			
+
 			# GRAPHICS SETTINGS
 			TL_Node.target_fps.load_value()
 			TL_Node.fps_measure.load_value()
@@ -122,30 +118,17 @@ func on_loading_ready():
 			TL_Node.old_head_forward_fac.load_value()
 			TL_Node.old_head_down_fac.load_value()
 			TL_Node.ground_tile_blur.load_value()
-			
+
 			# MOD SETTINGS
-			TL_Node.mods_main_script.load_values()
+#			TL_Node.mods_main_script.load_values()
 			TL_Node.htw_show_player_info.load_value()
-			
+
 			TL_Variables.startup_load_finished = true
-			
+
 			TL_Node.spawn_settings.load_values()
 			TL_Node.vid1_video.load_values()
 			
 			print("STARTUP LOAD FINISHED: " + str(TL_Variables.startup_load_finished))
-			
-#			TL_Node.change_log.get_child(0).get_child(0).load_value()
-#		else:
-#			config.set_value("defaults", "allowSavingSpeech", 0)
-#			config.set_value("defaults", "screenHeight", 720)
-#			config.set_value("defaults", "screenWidth", 1280)
-#			config.set_value("defaults", "resolution_selected", 2)
-#			config.set_value("defaults", "borderless", 0)
-#			config.set_value("defaults", "cursorMode", 0)
-#			config.set_value("defaults", "fullscreen", 0)
-#			config.save(TL_Path.launcher_settings)
-#			if config.has_section('seeds'):
-#				pass
 	else:
 		TL_Node.pop_popup_background.visible = true
 		TL_Node.pop_wrong_directory.popup()

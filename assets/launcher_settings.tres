@@ -1,38 +1,80 @@
+[audio]
+
+audio_volume=45
+audio_off=0
+music_volume=100
+music_off=0
+sound_volume=100
+sound_off=0
+
+[seeds]
+
+seeds=[ {
+"note": "Default",
+"seed": ""
+}, {
+"note": "Twistington Town",
+"seed": "Twistington"
+}, {
+"note": "That is the name",
+"seed": "anotherSEED"
+} ]
+seed_index=0
+
+[network]
+
+server=[ {
+"address": "play.twohoursonelife.com",
+"port": "8005",
+"server_name": "Two Hours One Life"
+}, {
+"address": "fhjhftg",
+"port": "jfizu",
+"server_name": "New Server"
+}, {
+"address": "",
+"port": "",
+"server_name": "New Server"
+} ]
+server_index=1
+
 [defaults]
 
-seed_index=0
-seed_name="Default"
-spawn_seed=""
-twinCode=""
 fullscreen=0
-screenWidth=1280
 screenHeight=720
+screenWidth=1280
 resolution_selected=2
 borderless=0
 cursorMode=0
 countingOnVsync=1
+seed_name="Default"
+spawn_seed=""
+seed_index=0
+twinCode=""
 audio_off=false
 audio_volume=100
 musicOff=false
 musicLoudness=100
 soundEffectsOff=false
 soundEffectsLoudness=100
+use_custom_server=0
+server_name="Two Hours One Life"
+server_address="play.twohoursonelife.com"
+server_port="8005"
+server_index=0
 server=[ {
 "address": "play.twohoursonelife.com",
-"port": 8005,
+"port": "8005",
 "server_name": "Two Hours One Life"
 } ]
-server_index=0
-server_address="play.twohoursonelife.com"
-server_name="Two Hours One Life"
-server_port=8005
-use_custom_server=0
+tutorial_done=0
 autoLogIn=0
 hardToQuitMode=0
 targetFrameRate=60
 skipFPSMeasure=0
 spellCheckOn=1
 enableLiveTriggers=0
+allowSavingSpeech=0
 tutorialDone=0
 pauseOnMinimize=0
 mouseSpeed=1.0
@@ -55,7 +97,6 @@ babyBodyDownFactor=0.75
 oldHeadForwardFactor=3.0
 oldHeadDownFactor=0.35
 groundTileEdgeBlurRadius=12
-KEY="/VALUE"
 emotDuration=10
 emo_happy="/happy"
 emo_mad="/mad"
@@ -86,35 +127,14 @@ emo_miner="/miner"
 emo_farmer="/farmer"
 emo_tailor="/tailor"
 emo_hunter="/hunter"
+init_show_selectedplayerinfo=0
 font_size=14
+KEY="/VALUE"
 
-[audio]
+[hetuw]
 
-audio_volume=100
-audio_off=0
-music_volume=100
-music_off=0
-sound_volume=100
-sound_off=0
-
-[seeds]
-
-seeds=[ {
-"note": "Default",
-"seed": ""
-} ]
-seed_index=0
-
-[network]
-
-server=[ {
-"address": "play.twohoursonelife.com",
-"port": 8005,
-"server_name": "Two Hours One Life"
-} ]
-server_index=0
+mod_selected=0
 
 [launcher]
 
-font_size=14
-mod_selected=0
+font_size=14.0
